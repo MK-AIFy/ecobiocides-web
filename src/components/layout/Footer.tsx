@@ -26,13 +26,25 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Image
-              src="/ecobiosides-logo.png"
-              alt="Ecobiocides & Botanicals"
-              width={180}
-              height={48}
-              className="h-10 w-auto brightness-0 invert"
-            />
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="relative h-11 w-11 shrink-0 overflow-hidden sm:h-12 sm:w-12 lg:h-14 lg:w-14">
+                <Image
+                  src="/ecobiosides-logo.png"
+                  alt="Ecobiocides & Botanicals Pvt Ltd"
+                  fill
+                  className="object-cover object-left brightness-0 invert"
+                  sizes="(max-width: 640px) 44px, (max-width: 1024px) 48px, 56px"
+                />
+              </div>
+              <div>
+                <p className="text-base font-bold leading-tight text-white sm:text-lg">
+                  Ecobiocides <span className="text-eco-400">&</span> Botanicals
+                </p>
+                <p className="text-[11px] font-medium uppercase tracking-widest text-gray-500 sm:text-xs">
+                  Pvt Ltd
+                </p>
+              </div>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               {COMPANY.description}
             </p>

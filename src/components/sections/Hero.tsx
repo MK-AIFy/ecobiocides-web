@@ -36,7 +36,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-32 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-36 sm:px-6 lg:px-8 md:pt-40">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Column - Content */}
           <motion.div

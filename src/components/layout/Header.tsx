@@ -50,7 +50,7 @@ export default function Header() {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between md:h-20">
+        <div className="flex h-20 items-center justify-between md:h-24 lg:h-28">
           {/* Logo */}
           <motion.a
             href="#home"
@@ -58,18 +58,28 @@ export default function Header() {
               e.preventDefault();
               handleNavClick("#home");
             }}
-            className="flex items-center gap-3"
+            className="flex shrink-0 items-center gap-3"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Image
-              src="/ecobiosides-logo.png"
-              alt="Ecobiocides & Botanicals"
-              width={180}
-              height={48}
-              className="h-10 w-auto sm:h-12"
-              priority
-            />
+            <div className="relative h-11 w-11 shrink-0 overflow-hidden sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16">
+              <Image
+                src="/ecobiosides-logo.png"
+                alt="Ecobiocides & Botanicals Pvt Ltd"
+                fill
+                className="object-cover object-left"
+                sizes="(max-width: 640px) 44px, (max-width: 768px) 48px, (max-width: 1024px) 56px, 64px"
+                priority
+              />
+            </div>
+            <div className="hidden min-[520px]:block">
+              <p className="text-sm font-bold leading-tight tracking-tight text-gray-900 sm:text-base lg:text-lg">
+                Ecobiocides <span className="text-eco-600">&</span> Botanicals
+              </p>
+              <p className="text-[10px] font-medium uppercase tracking-widest text-gray-500 sm:text-[11px] lg:text-xs">
+                Pvt Ltd
+              </p>
+            </div>
           </motion.a>
 
           {/* Desktop Nav */}
