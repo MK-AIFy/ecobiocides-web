@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/lib/constants";
@@ -61,30 +62,14 @@ export default function Header() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-eco-600 to-eco-800 shadow-lg shadow-eco-600/30">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="h-6 w-6 text-white"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M7 20h10" />
-                <path d="M10 20c5.5-2.5.8-6.4 3-10" />
-                <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
-                <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
-              </svg>
-            </div>
-            <div className="hidden sm:block">
-              <p className="text-lg font-bold tracking-tight text-gray-900">
-                Eco<span className="text-eco-600">biocides</span>
-              </p>
-              <p className="text-[10px] font-medium uppercase tracking-widest text-gray-500">
-                & Botanicals
-              </p>
-            </div>
+            <Image
+              src="/ecobiosides-logo.png"
+              alt="Ecobiocides & Botanicals"
+              width={180}
+              height={48}
+              className="h-10 w-auto sm:h-12"
+              priority
+            />
           </motion.a>
 
           {/* Desktop Nav */}

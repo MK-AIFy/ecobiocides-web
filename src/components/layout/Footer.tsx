@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { COMPANY, NAV_LINKS } from "@/lib/constants";
 import { Mail, MapPin, Phone, ArrowUp } from "lucide-react";
 
@@ -25,32 +26,13 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-eco-600 to-eco-800">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="h-6 w-6 text-white"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M7 20h10" />
-                  <path d="M10 20c5.5-2.5.8-6.4 3-10" />
-                  <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" />
-                  <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-lg font-bold text-white">
-                  Eco<span className="text-eco-400">biocides</span>
-                </p>
-                <p className="text-[10px] font-medium uppercase tracking-widest text-gray-500">
-                  & Botanicals
-                </p>
-              </div>
-            </div>
+            <Image
+              src="/ecobiosides-logo.png"
+              alt="Ecobiocides & Botanicals"
+              width={180}
+              height={48}
+              className="h-10 w-auto brightness-0 invert"
+            />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               {COMPANY.description}
             </p>
