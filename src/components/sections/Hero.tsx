@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-gray-50 via-white to-eco-50/30"
+      className="relative flex min-h-screen items-center overflow-hidden bg-linear-to-br from-gray-50 via-white to-eco-50/30"
     >
       {/* Background Pattern */}
       <div className="pointer-events-none absolute inset-0">
@@ -128,8 +128,8 @@ export default function Hero() {
               <div className="absolute -inset-8 animate-[spin_40s_linear_infinite_reverse] rounded-full border border-eco-100/20" />
 
               {/* Central visual */}
-              <div className="relative mx-auto aspect-square max-w-md overflow-hidden rounded-3xl bg-gradient-to-br from-eco-600 via-eco-700 to-eco-900 p-1 shadow-2xl shadow-eco-900/30">
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-[20px] bg-gradient-to-br from-eco-600 via-eco-700 to-eco-900 p-8 text-center text-white">
+              <div className="relative mx-auto aspect-square max-w-md overflow-hidden rounded-3xl bg-linear-to-br from-eco-600 via-eco-700 to-eco-900 p-1 shadow-2xl shadow-eco-900/30">
+                <div className="flex h-full w-full flex-col items-center justify-center rounded-[20px] bg-linear-to-br from-eco-600 via-eco-700 to-eco-900 p-8 text-center text-white">
                   {/* Neem leaf icon */}
                   <svg
                     viewBox="0 0 120 120"

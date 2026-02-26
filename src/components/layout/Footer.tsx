@@ -4,6 +4,8 @@ import Image from "next/image";
 import { COMPANY, NAV_LINKS } from "@/lib/constants";
 import { Mail, MapPin, Phone, ArrowUp } from "lucide-react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -29,7 +31,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 sm:gap-4">
               <div className="relative h-11 w-11 shrink-0 overflow-hidden sm:h-12 sm:w-12 lg:h-14 lg:w-14">
                 <Image
-                  src="/ecobiosides-logo.png"
+                  src={`${basePath}/ecobiosides-logo.png`}
                   alt="Ecobiocides & Botanicals Pvt Ltd"
                   fill
                   className="object-cover object-left brightness-0 invert"

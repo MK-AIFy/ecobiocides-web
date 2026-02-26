@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/lib/constants";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -64,7 +66,7 @@ export default function Header() {
           >
             <div className="relative h-11 w-11 shrink-0 overflow-hidden sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16">
               <Image
-                src="/ecobiosides-logo.png"
+                src={`${basePath}/ecobiosides-logo.png`}
                 alt="Ecobiocides & Botanicals Pvt Ltd"
                 fill
                 className="object-cover object-left"
