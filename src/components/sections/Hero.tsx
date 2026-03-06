@@ -25,7 +25,7 @@ export default function Hero() {
       {/* Background Field Photo */}
       <div className="pointer-events-none absolute inset-0">
         <Image
-          src="/images/photos/hero-field.jpg"
+          src={`${basePath}/images/photos/hero-field.jpg`}
           alt=""
           fill
           className="object-cover opacity-[0.08]"
@@ -147,7 +147,7 @@ export default function Hero() {
               <div className="relative mx-auto aspect-square max-w-md overflow-hidden rounded-3xl bg-linear-to-br from-eco-600 via-eco-700 to-eco-900 p-1 shadow-2xl shadow-eco-900/30">
                 {/* Neem leaves photo background */}
                 <Image
-                  src="/images/photos/neem-leaves.jpg"
+                  src={`${basePath}/images/photos/neem-leaves.jpg`}
                   alt="Neem leaves"
                   fill
                   className="object-cover opacity-25"
