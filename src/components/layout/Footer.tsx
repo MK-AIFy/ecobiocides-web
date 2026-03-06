@@ -14,11 +14,14 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gray-950 text-gray-300">
+      {/* Environmental pattern overlay */}
+      <div className="pointer-events-none absolute inset-0 dot-pattern opacity-[0.03]" />
+
       {/* Back to top */}
       <div className="flex justify-center">
         <button
           onClick={scrollToTop}
-          className="-mt-6 flex h-12 w-12 items-center justify-center rounded-full bg-eco-600 text-white shadow-lg shadow-eco-600/30 transition-all hover:-translate-y-1 hover:bg-eco-700 hover:shadow-xl"
+          className="-mt-6 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-eco-600 to-eco-700 text-white shadow-lg shadow-eco-600/30 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-eco-600/40"
           aria-label="Back to top"
         >
           <ArrowUp className="h-5 w-5" />
@@ -139,7 +142,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-8 md:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-800/60 pt-8 md:flex-row">
           <p className="text-sm text-gray-500">
             © {new Date().getFullYear()} {COMPANY.legalName}. All rights
             reserved.

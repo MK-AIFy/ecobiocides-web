@@ -248,6 +248,7 @@ export const TESTIMONIALS = [
     name: "Dr. Rajesh Kumar",
     role: "Director of Agriculture",
     organization: "State Agriculture Department",
+    industry: "Government",
     quote:
       "Ecobiocides has transformed our approach to organic pest management. Their Azagro formulations deliver consistent results across diverse crops while maintaining soil health.",
     rating: 5,
@@ -256,6 +257,7 @@ export const TESTIMONIALS = [
     name: "Anand Subramanian",
     role: "Plantation Manager",
     organization: "Southern Spice Estates",
+    industry: "Plantation",
     quote:
       "We switched to Ecobiocides' neem-based products three years ago. Our crop yield improved by 22% while eliminating chemical pesticide dependency entirely.",
     rating: 5,
@@ -264,6 +266,7 @@ export const TESTIMONIALS = [
     name: "Prof. Meera Patel",
     role: "Research Head",
     organization: "Institute of Agricultural Sciences",
+    industry: "Research",
     quote:
       "The Azadirachtin Technical grade from Ecobiocides meets the highest purity standards. It's our benchmark reference material for neem bioactivity research.",
     rating: 5,
@@ -272,6 +275,7 @@ export const TESTIMONIALS = [
     name: "Krishnamurthy V.",
     role: "CEO",
     organization: "Organic Farms Collective",
+    industry: "Organic Farming",
     quote:
       "With Ecocert certifications and ISO quality, Ecobiocides is the only supplier we trust for our certified organic produce destined for European markets.",
     rating: 5,
@@ -283,4 +287,45 @@ export const STATS = [
   { value: "400+", label: "Insects Controlled" },
   { value: "6+", label: "Product Variants" },
   { value: "4", label: "Global Certifications" },
+] as const;
+
+export const TRUST_INDUSTRIES = [
+  { label: "Agriculture", icon: "wheat" },
+  { label: "Healthcare", icon: "heart-pulse" },
+  { label: "Food Processing", icon: "utensils" },
+  { label: "Industrial", icon: "factory" },
+  { label: "Commercial", icon: "building" },
+  { label: "Residential", icon: "home" },
+  { label: "Organic Farming", icon: "leaf" },
+  { label: "Pharmaceuticals", icon: "pill" },
+] as const;
+
+export const SUSTAINABILITY_STATS = [
+  { value: 400, suffix: "+", label: "Insect Species Controlled", prefix: "" },
+  { value: 0, suffix: "", label: "Toxic Residues", prefix: "Zero" },
+  { value: 100, suffix: "%", label: "Biodegradable Products", prefix: "" },
+  { value: 35, suffix: "+", label: "Years Pioneering Eco-Safety", prefix: "" },
+] as const;
+
+export const TECHNOLOGY_POINTS = [
+  {
+    title: "Eco-Safe Botanical Chemistry",
+    description:
+      "All products derived from neem — a renewable botanical source. Our extraction process preserves bioactive compounds while ensuring zero synthetic chemical residues.",
+  },
+  {
+    title: "Integrated Pest Management",
+    description:
+      "Multi-modal action combining anti-feedant, growth-disrupting, and repellent properties. Effective against 400+ insect species without harming beneficial organisms.",
+  },
+  {
+    title: "Environmental Protection Standards",
+    description:
+      "Compliant with NPOP, USDA NOP, and EU Organic regulations. Our products break down naturally, leaving no persistent environmental contamination.",
+  },
+  {
+    title: "Precision Formulation Science",
+    description:
+      "Emulsifiable concentrates engineered from 300 to 50,000 ppm Azadirachtin — precision-tuned for specific crops, pests, and application methods.",
+  },
 ] as const;

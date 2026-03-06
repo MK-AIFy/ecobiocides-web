@@ -14,8 +14,6 @@ import {
 import { COMPANY } from "@/lib/constants";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
 interface FormData {
   name: string;
   email: string;
@@ -119,15 +117,10 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-padding relative bg-white overflow-hidden">
-      {/* Green field transition strip */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-20">
-        <div
-          className="h-full w-full bg-cover bg-bottom opacity-[0.08]"
-          style={{
-            backgroundImage: `url('${basePath}/images/photos/green-plantation.jpg')`,
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-white" />
+      {/* Subtle background accents */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-eco-50/40 blur-3xl" />
+        <div className="absolute left-0 bottom-0 h-[300px] w-[300px] rounded-full bg-eco-50/30 blur-3xl" />
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -148,7 +141,7 @@ export default function Contact() {
           >
             <div className="space-y-6">
               {/* Key contacts */}
-              <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6">
+              <div className="rounded-2xl border border-gray-100 bg-gray-50/80 p-6 backdrop-blur-sm">
                 <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500">
                   Key Contacts
                 </h3>
@@ -237,11 +230,16 @@ export default function Contact() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:shadow-xl hover:shadow-[#25D366]/40"
+                className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#25D366]/40"
               >
                 <MessageCircle className="h-5 w-5" />
                 Chat on WhatsApp
               </a>
+
+              {/* Trust message */}
+              <p className="text-center text-xs text-gray-400">
+                Average response time: under 2 hours during business hours
+              </p>
             </div>
           </motion.div>
 
@@ -253,8 +251,8 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg shadow-gray-100/50">
-              <div className="bg-gradient-to-r from-eco-600 to-eco-700 p-6">
+            <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl shadow-gray-200/50">
+              <div className="bg-gradient-to-r from-eco-600 via-eco-600 to-eco-700 p-6">
                 <h3 className="text-lg font-bold text-white">
                   Request a Quote
                 </h3>
@@ -432,7 +430,7 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-eco-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-eco-600/20 transition-all hover:bg-eco-700 hover:shadow-xl sm:w-auto"
+                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-eco-600 to-eco-700 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-eco-600/25 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-eco-600/35 sm:w-auto"
                   >
                     <Send className="h-4 w-4" />
                     Send Message

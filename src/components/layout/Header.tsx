@@ -39,12 +39,12 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "glass shadow-lg shadow-black/5"
+          ? "glass-premium shadow-lg shadow-black/[0.03]"
           : "bg-transparent"
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between md:h-24 lg:h-28">
+        <div className="flex h-18 items-center justify-between md:h-20 lg:h-22">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.02 }}
@@ -110,7 +110,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <a
               href={`tel:${COMPANY.phones[0]}`}
-              className="hidden items-center gap-2 rounded-full bg-eco-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-eco-600/30 transition-all duration-300 hover:bg-eco-700 hover:shadow-xl hover:shadow-eco-600/40 sm:flex"
+              className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-eco-600 to-eco-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-eco-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-eco-600/35 sm:flex"
             >
               <Phone className="h-4 w-4" />
               Get Quote
@@ -142,7 +142,7 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden border-t border-gray-200/50 lg:hidden"
           >
-            <div className="glass space-y-1 px-4 pb-6 pt-4">
+            <div className="glass-premium space-y-1 px-4 pb-6 pt-4">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -165,7 +165,7 @@ export default function Header() {
               <div className="pt-4">
                 <a
                   href={`tel:${COMPANY.phones[0]}`}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-eco-600 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-eco-600/30"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-eco-600 to-eco-700 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-eco-600/25"
                 >
                   <Phone className="h-4 w-4" />
                   Get Quote

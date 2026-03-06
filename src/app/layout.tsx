@@ -1,38 +1,53 @@
 import type { Metadata, Viewport } from "next";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { COMPANY } from "@/lib/constants";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-manrope",
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#16a34a",
+  themeColor: "#0e9648",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(COMPANY.website),
   title: {
-    default: `${COMPANY.name} — India's Leading Neem-Based Bio Pesticide Manufacturer`,
+    default: `${COMPANY.name} — Eco-Safe Protection for Modern Environments`,
     template: `%s | ${COMPANY.name}`,
   },
   description: COMPANY.description,
   keywords: [
+    "eco-safe pest management",
+    "sustainable crop protection",
     "neem based bio pesticide",
     "azadirachtin manufacturer India",
     "organic pesticide",
-    "neem oil cold pressed",
-    "neem cake organic fertilizer",
-    "azagro formulations",
+    "environmental protection",
+    "botanical pesticide",
+    "integrated pest management",
     "ecocert certified neem products",
     "bio pesticide manufacturer Tamil Nadu",
     "organic agriculture inputs",
     "neem kernel extract",
     "ecobiocides",
-    "botanical pesticide",
-    "sustainable crop protection",
+    "green technology agriculture",
+    "biodegradable pesticide",
   ],
   authors: [{ name: COMPANY.name, url: COMPANY.website }],
   creator: COMPANY.name,
@@ -53,27 +68,27 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: COMPANY.website,
     siteName: COMPANY.name,
-    title: `${COMPANY.name} — India's Leading Neem-Based Bio Pesticide Manufacturer`,
+    title: `${COMPANY.name} — Eco-Safe Protection for Modern Environments`,
     description: COMPANY.description,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: `${COMPANY.name} — Neem Based Bio Solutions`,
+        alt: `${COMPANY.name} — Eco-Safe Bio Solutions`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY.name} — Bio Pesticide Manufacturer`,
+    title: `${COMPANY.name} — Eco-Safe Protection for Modern Environments`,
     description: COMPANY.description,
     images: ["/og-image.png"],
   },
   alternates: {
     canonical: COMPANY.website,
   },
-  category: "Agriculture",
+  category: "Environmental Technology",
 };
 
 // JSON-LD Structured Data
@@ -151,18 +166,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${inter.variable} ${manrope.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
