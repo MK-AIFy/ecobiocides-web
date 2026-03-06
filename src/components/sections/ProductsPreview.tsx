@@ -19,10 +19,23 @@ const iconMap: Record<string, React.ElementType> = {
   sprout: Sprout,
 };
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function ProductsPreview() {
   return (
-    <section id="products" className="section-padding relative bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="products" className="section-padding relative bg-white overflow-hidden">
+      {/* Field background strip */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-80">
+        <div
+          className="h-full w-full bg-cover bg-center opacity-[0.06]"
+          style={{
+            backgroundImage: `url('${basePath}/images/products-banner.svg')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/70 to-white" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Our Products"
           title="Neem-Based Bio Solutions"

@@ -6,6 +6,8 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/constants";
 import SectionHeading from "@/components/ui/SectionHeading";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Testimonials() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
@@ -44,7 +46,18 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="section-padding relative bg-gray-50">
+    <section id="testimonials" className="section-padding relative bg-gray-50 overflow-hidden">
+      {/* Field image strip at top */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40">
+        <div
+          className="h-full w-full bg-cover bg-center opacity-[0.06]"
+          style={{
+            backgroundImage: `url('${basePath}/images/field-divider.svg')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/20 via-gray-50/60 to-gray-50" />
+      </div>
+
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-0 top-1/4 h-96 w-96 rounded-full bg-eco-100/30 blur-3xl" />
       </div>

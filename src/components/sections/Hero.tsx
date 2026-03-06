@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { COMPANY, STATS } from "@/lib/constants";
+import Image from "next/image";
 import {
   ArrowRight,
   MessageCircle,
@@ -11,6 +12,8 @@ import {
   ChevronDown,
 } from "lucide-react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Hero() {
   const whatsappUrl = `https://wa.me/${COMPANY.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello! I'd like to request a quote for your products.")}`;
 
@@ -19,6 +22,19 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden bg-linear-to-br from-gray-50 via-white to-eco-50/30"
     >
+      {/* Background Field Photo */}
+      <div className="pointer-events-none absolute inset-0">
+        <Image
+          src={`${basePath}/images/photos/hero-field.jpg`}
+          alt=""
+          fill
+          className="object-cover opacity-[0.08]"
+          sizes="100vw"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50/95 via-white/90 to-eco-50/85" />
+      </div>
+
       {/* Background Pattern */}
       <div className="pointer-events-none absolute inset-0">
         {/* Gradient orbs */}
@@ -129,7 +145,15 @@ export default function Hero() {
 
               {/* Central visual */}
               <div className="relative mx-auto aspect-square max-w-md overflow-hidden rounded-3xl bg-linear-to-br from-eco-600 via-eco-700 to-eco-900 p-1 shadow-2xl shadow-eco-900/30">
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-[20px] bg-linear-to-br from-eco-600 via-eco-700 to-eco-900 p-8 text-center text-white">
+                {/* Neem leaves photo background */}
+                <Image
+                  src={`${basePath}/images/photos/neem-leaves.jpg`}
+                  alt="Neem leaves"
+                  fill
+                  className="object-cover opacity-25"
+                  sizes="(max-width: 1024px) 0px, 448px"
+                />
+                <div className="relative flex h-full w-full flex-col items-center justify-center rounded-[20px] bg-linear-to-br from-eco-600/80 via-eco-700/85 to-eco-900/90 p-8 text-center text-white">
                   {/* Neem leaf icon */}
                   <svg
                     viewBox="0 0 120 120"

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Shield, Award, FileCheck, CheckCircle2, ArrowRight } from "lucide-react";
 import { CERTIFICATIONS } from "@/lib/constants";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const certIcons = [Shield, Award, FileCheck, CheckCircle2];
 
 export default function CertificationsPreview() {
@@ -15,6 +16,12 @@ export default function CertificationsPreview() {
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.04]"
+          style={{
+            backgroundImage: `url('${basePath}/images/certifications-banner.svg')`,
+          }}
+        />
         <div className="absolute -left-32 -top-32 h-64 w-64 rounded-full bg-eco-400/10 blur-3xl" />
         <div className="absolute -bottom-16 -right-16 h-80 w-80 rounded-full bg-eco-400/5 blur-3xl" />
         <div

@@ -14,6 +14,8 @@ import {
 import { COMPANY } from "@/lib/constants";
 import SectionHeading from "@/components/ui/SectionHeading";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 interface FormData {
   name: string;
   email: string;
@@ -116,7 +118,18 @@ export default function Contact() {
   const whatsappUrl = `https://wa.me/${COMPANY.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello! I'd like to inquire about your products.")}`;
 
   return (
-    <section id="contact" className="section-padding relative bg-white">
+    <section id="contact" className="section-padding relative bg-white overflow-hidden">
+      {/* Green field transition strip */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-20">
+        <div
+          className="h-full w-full bg-cover bg-bottom opacity-[0.08]"
+          style={{
+            backgroundImage: `url('${basePath}/images/photos/green-plantation.jpg')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-white" />
+      </div>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Contact Us"

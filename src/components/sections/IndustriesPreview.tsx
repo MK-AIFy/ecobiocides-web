@@ -23,14 +23,23 @@ const iconMap: Record<string, React.ElementType> = {
   globe: Globe,
 };
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function IndustriesPreview() {
   return (
     <section
       id="industries"
-      className="section-padding relative bg-gray-50/50"
+      className="section-padding relative bg-gray-50/50 overflow-hidden"
     >
-      {/* Subtle background */}
+      {/* Field background */}
       <div className="pointer-events-none absolute inset-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-[0.07]"
+          style={{
+            backgroundImage: `url('${basePath}/images/industries-banner.svg')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/80 via-gray-50/60 to-gray-50/90" />
         <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-eco-100/20 blur-3xl" />
         <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-eco-50/30 blur-3xl" />
       </div>
