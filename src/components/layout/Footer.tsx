@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { COMPANY, NAV_LINKS } from "@/lib/constants";
 import { Mail, MapPin, Phone, ArrowUp } from "lucide-react";
 
@@ -60,12 +61,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm text-gray-400 transition-colors hover:text-eco-400"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -85,12 +86,12 @@ export default function Footer() {
                 "Neem Kernel Cake",
               ].map((product) => (
                 <li key={product}>
-                  <a
-                    href="#products"
+                  <Link
+                    href="/products"
                     className="text-sm text-gray-400 transition-colors hover:text-eco-400"
                   >
                     {product}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

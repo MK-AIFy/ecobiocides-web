@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600">
+  <defs>
+    <linearGradient id="psky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dcfce7;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#f0fdf4;stop-opacity:0.3"/>
+    </linearGradient>
+    <linearGradient id="pfield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="50%" style="stop-color:#15803d"/>
+      <stop offset="100%" style="stop-color:#166534"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="600" fill="url(#psky)"/>
+  <!-- Neem leaves pattern -->
+  <g fill="#22c55e" opacity="0.15">
+    <ellipse cx="200" cy="100" rx="60" ry="20" transform="rotate(-30 200 100)"/>
+    <ellipse cx="500" cy="180" rx="50" ry="15" transform="rotate(20 500 180)"/>
+    <ellipse cx="900" cy="80" rx="55" ry="18" transform="rotate(-15 900 80)"/>
+    <ellipse cx="1200" cy="150" rx="65" ry="22" transform="rotate(25 1200 150)"/>
+    <ellipse cx="1400" cy="60" rx="45" ry="14" transform="rotate(-20 1400 60)"/>
+    <ellipse cx="300" cy="250" rx="50" ry="16" transform="rotate(10 300 250)"/>
+    <ellipse cx="700" cy="220" rx="58" ry="19" transform="rotate(-25 700 220)"/>
+    <ellipse cx="1100" cy="260" rx="52" ry="17" transform="rotate(15 1100 260)"/>
+  </g>
+  <!-- Fields -->
+  <path d="M0,320 Q300,280 600,310 Q900,340 1200,290 Q1400,270 1600,300 L1600,600 L0,600Z" fill="url(#pfield)" opacity="0.85"/>
+  <path d="M0,380 Q400,350 800,370 Q1200,400 1600,360 L1600,600 L0,600Z" fill="#14532d" opacity="0.6"/>
+  <!-- Crop rows -->
+  <g opacity="0.12" stroke="#052e16" stroke-width="1.5" fill="none">
+    <path d="M0,340 Q400,320 800,335 Q1200,350 1600,325"/>
+    <path d="M0,360 Q400,345 800,358 Q1200,370 1600,350"/>
+    <path d="M0,380 Q400,370 800,378 Q1200,386 1600,372"/>
+    <path d="M0,400 Q400,392 800,398 Q1200,404 1600,395"/>
+  </g>
+  <!-- Flask/lab elements abstracted -->
+  <g fill="#bbf7d0" opacity="0.2">
+    <circle cx="800" cy="200" r="80"/>
+    <circle cx="800" cy="200" r="50" fill="#86efac" opacity="0.3"/>
+  </g>
+</svg>

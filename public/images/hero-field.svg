@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 600">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:0.6"/>
+      <stop offset="40%" style="stop-color:#E0F2FE;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#f0fdf4;stop-opacity:0.2"/>
+    </linearGradient>
+    <linearGradient id="field1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#15803d"/>
+    </linearGradient>
+    <linearGradient id="field2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="100%" style="stop-color:#166534"/>
+    </linearGradient>
+    <linearGradient id="field3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+  </defs>
+  <!-- Sky -->
+  <rect width="1600" height="600" fill="url(#sky)"/>
+  <!-- Distant hills -->
+  <ellipse cx="400" cy="280" rx="500" ry="80" fill="#86efac" opacity="0.5"/>
+  <ellipse cx="1200" cy="290" rx="600" ry="90" fill="#bbf7d0" opacity="0.4"/>
+  <!-- Rolling fields -->
+  <path d="M0,350 Q200,300 400,340 Q600,380 800,330 Q1000,280 1200,340 Q1400,380 1600,320 L1600,600 L0,600Z" fill="url(#field1)" opacity="0.9"/>
+  <path d="M0,400 Q300,360 500,390 Q700,420 900,370 Q1100,330 1300,380 Q1500,410 1600,380 L1600,600 L0,600Z" fill="url(#field2)" opacity="0.85"/>
+  <path d="M0,460 Q200,440 400,455 Q600,470 800,445 Q1000,420 1200,450 Q1400,470 1600,440 L1600,600 L0,600Z" fill="url(#field3)" opacity="0.7"/>
+  <!-- Field rows / texture -->
+  <g opacity="0.15" stroke="#14532d" stroke-width="1" fill="none">
+    <path d="M0,380 Q400,350 800,370 Q1200,390 1600,360"/>
+    <path d="M0,400 Q400,380 800,395 Q1200,410 1600,385"/>
+    <path d="M0,420 Q400,405 800,415 Q1200,425 1600,410"/>
+    <path d="M0,440 Q400,430 800,438 Q1200,446 1600,432"/>
+    <path d="M0,460 Q400,450 800,458 Q1200,466 1600,454"/>
+    <path d="M0,480 Q400,475 800,479 Q1200,483 1600,476"/>
+  </g>
+  <!-- Trees silhouettes -->
+  <g fill="#15803d" opacity="0.6">
+    <ellipse cx="100" cy="310" rx="30" ry="45"/>
+    <rect x="96" y="340" width="8" height="20" fill="#166534"/>
+    <ellipse cx="180" cy="320" rx="25" ry="35"/>
+    <rect x="177" y="345" width="6" height="15" fill="#166534"/>
+    <ellipse cx="1450" cy="305" rx="35" ry="50"/>
+    <rect x="1446" y="340" width="8" height="20" fill="#166534"/>
+    <ellipse cx="1520" cy="315" rx="28" ry="40"/>
+    <rect x="1517" y="345" width="6" height="15" fill="#166534"/>
+  </g>
+  <!-- Sun glow -->
+  <circle cx="1300" cy="120" r="60" fill="#fbbf24" opacity="0.2"/>
+  <circle cx="1300" cy="120" r="35" fill="#fbbf24" opacity="0.3"/>
+</svg>

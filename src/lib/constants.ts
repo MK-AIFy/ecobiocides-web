@@ -33,14 +33,24 @@ export const COMPANY = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "Products", href: "#products" },
-  { label: "Industries", href: "#industries" },
-  { label: "About", href: "#about" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Products", href: "/products" },
+  { label: "Industries", href: "/industries" },
+  { label: "About", href: "/about" },
+  { label: "Certifications", href: "/certifications" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
+
+export interface Product {
+  id: string;
+  title: string;
+  shortDescription: string;
+  description: string;
+  features: readonly string[];
+  icon: string;
+  variants?: readonly string[];
+}
 
 export const PRODUCTS = [
   {

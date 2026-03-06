@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 400">
+  <defs>
+    <linearGradient id="dfield1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ade80"/>
+      <stop offset="100%" style="stop-color:#16a34a"/>
+    </linearGradient>
+    <linearGradient id="dfield2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#14532d"/>
+    </linearGradient>
+    <linearGradient id="dsky2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#ecfdf5;stop-opacity:0.5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="400" fill="url(#dsky2)"/>
+  <!-- Panoramic green field -->
+  <path d="M0,120 Q200,90 400,115 Q600,140 800,105 Q1000,70 1200,110 Q1400,140 1600,100 L1600,400 L0,400Z" fill="url(#dfield1)" opacity="0.9"/>
+  <path d="M0,200 Q300,180 600,195 Q900,210 1200,185 Q1400,170 1600,190 L1600,400 L0,400Z" fill="url(#dfield2)" opacity="0.8"/>
+  <path d="M0,280 Q400,265 800,275 Q1200,285 1600,270 L1600,400 L0,400Z" fill="#052e16" opacity="0.4"/>
+  <!-- Neem tree silhouettes -->
+  <g fill="#15803d" opacity="0.5">
+    <ellipse cx="150" cy="85" rx="40" ry="55"/>
+    <rect x="146" y="125" width="8" height="25" fill="#166534"/>
+    <ellipse cx="350" cy="95" rx="30" ry="40"/>
+    <rect x="347" y="125" width="6" height="18" fill="#166534"/>
+    <ellipse cx="1300" cy="80" rx="45" ry="60"/>
+    <rect x="1296" y="125" width="8" height="25" fill="#166534"/>
+    <ellipse cx="1480" cy="90" rx="32" ry="42"/>
+    <rect x="1477" y="122" width="6" height="18" fill="#166534"/>
+  </g>
+  <!-- Field texture rows -->
+  <g opacity="0.1" stroke="#052e16" stroke-width="1" fill="none">
+    <path d="M0,160 Q400,145 800,155 Q1200,165 1600,150"/>
+    <path d="M0,180 Q400,170 800,178 Q1200,186 1600,174"/>
+    <path d="M0,200 Q400,195 800,200 Q1200,205 1600,196"/>
+    <path d="M0,220 Q400,215 800,219 Q1200,223 1600,217"/>
+    <path d="M0,240 Q400,237 800,240 Q1200,243 1600,238"/>
+  </g>
+</svg>

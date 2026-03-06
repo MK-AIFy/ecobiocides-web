@@ -76,7 +76,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <motion.a
-                href="#contact"
+                href="/#contact"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="group flex items-center justify-center gap-2 rounded-full bg-eco-600 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-eco-600/30 transition-all hover:bg-eco-700 hover:shadow-xl hover:shadow-eco-600/40"
