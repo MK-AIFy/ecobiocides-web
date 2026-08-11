@@ -1,22 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { COMPANY } from "@/lib/constants";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-manrope",
-});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -28,7 +15,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(COMPANY.website),
   title: {
-    default: `${COMPANY.name} — Eco-Safe Protection for Modern Environments`,
+    default: `${COMPANY.name} — Botanical Crop Protection, Made Precise`,
     template: `%s | ${COMPANY.name}`,
   },
   description: COMPANY.description,
@@ -68,22 +55,22 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: COMPANY.website,
     siteName: COMPANY.name,
-    title: `${COMPANY.name} — Eco-Safe Protection for Modern Environments`,
+    title: `${COMPANY.name} — Botanical Crop Protection, Made Precise`,
     description: COMPANY.description,
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: `${COMPANY.name} — Eco-Safe Bio Solutions`,
+        url: "/og.png",
+        width: 1731,
+        height: 909,
+        alt: `${COMPANY.name} — Azagro botanical crop-protection range`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY.name} — Eco-Safe Protection for Modern Environments`,
+    title: `${COMPANY.name} — Botanical Crop Protection, Made Precise`,
     description: COMPANY.description,
-    images: ["/og-image.png"],
+    images: ["/og.png"],
   },
   alternates: {
     canonical: COMPANY.website,
@@ -166,7 +153,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${inter.variable} ${manrope.variable}`}>
+    <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <script
           type="application/ld+json"

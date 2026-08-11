@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from "@headlessui/react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   X,
   Check,
@@ -144,14 +145,14 @@ export default function ProductDialog({
 
                   {/* CTA */}
                   <div className="mt-8 flex flex-col gap-3 border-t border-gray-100 pt-6 sm:flex-row">
-                    <a
+                    <Link
                       href="/#contact"
                       onClick={onClose}
                       className="inline-flex items-center justify-center gap-2 rounded-full bg-eco-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-eco-600/20 transition-all hover:bg-eco-700 hover:shadow-xl"
                     >
                       Request Quote
                       <ChevronRight className="h-4 w-4" />
-                    </a>
+                    </Link>
                     <a
                       href={whatsappUrl}
                       target="_blank"

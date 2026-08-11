@@ -24,11 +24,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
-
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
     if (href.startsWith("/#")) return pathname === "/";
@@ -37,10 +32,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "glass-premium shadow-lg shadow-black/[0.03]"
-          : "bg-transparent"
+      className={`glass-premium fixed left-0 right-0 top-0 z-50 border-b border-white/60 transition-all duration-500 ${
+        isScrolled ? "shadow-lg shadow-black/[0.05]" : "shadow-sm shadow-black/[0.02]"
       }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -152,6 +145,7 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors ${
                       isActive(link.href)
                         ? "bg-eco-50 text-eco-700"

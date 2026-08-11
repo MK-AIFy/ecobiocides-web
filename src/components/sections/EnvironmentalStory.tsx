@@ -12,8 +12,8 @@ const stories = [
     title: "Chemical Pesticides Are Destroying Our Ecosystems",
     description:
       "Conventional pest management relies on synthetic chemicals that contaminate soil, water, and food chains. These toxins harm beneficial organisms, degrade biodiversity, and leave persistent residues that endanger human health for generations.",
-    image: `${basePath}/images/photos/organic-farm.jpg`,
-    imageAlt: "Organic farm showcasing sustainable agricultural practices",
+    image: `${basePath}/media/story/pest-spectrum.webp`,
+    imageAlt: "Collage of common agricultural pests affecting crops",
     reverse: false,
   },
   {
@@ -21,8 +21,8 @@ const stories = [
     title: "Nature Already Has the Answer",
     description:
       "The neem tree — Azadirachta indica — produces Azadirachtin, a powerful bioactive compound that controls over 400 insect species. It disrupts pest reproduction and feeding without harming beneficial insects, birds, or soil microbiomes. Completely biodegradable, leaving zero toxic residues.",
-    image: `${basePath}/images/photos/neem-leaves.jpg`,
-    imageAlt: "Neem leaves — the botanical source of eco-safe pest protection",
+    image: `${basePath}/media/story/neem-shield.webp`,
+    imageAlt: "Neem seedling represented inside a botanical protection shield",
     reverse: true,
   },
   {
@@ -30,8 +30,8 @@ const stories = [
     title: "Protecting Crops While Preserving Nature",
     description:
       "Our solutions help farmers achieve higher yields with safer produce. By replacing synthetic chemicals with botanical alternatives, we protect pollinators, maintain soil health, and deliver food-grade safety — all while meeting the strictest international organic certification standards.",
-    image: `${basePath}/images/photos/green-plantation.jpg`,
-    imageAlt: "Green plantation thriving with eco-safe crop protection methods",
+    image: `${basePath}/media/story/indian-farmer.webp`,
+    imageAlt: "Farmer working in healthy fields at sunrise",
     reverse: false,
   },
 ];

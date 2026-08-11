@@ -19,13 +19,11 @@ function AnimatedCounter({
   prefix?: string;
   inView: boolean;
 }) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => (prefix ? value : 0));
 
   useEffect(() => {
     if (!inView) return;
     if (prefix) {
-      // For "Zero" type values, just show immediately
-      setCount(value);
       return;
     }
 

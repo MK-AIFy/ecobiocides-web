@@ -1,155 +1,99 @@
-"use client";
-
-import { useState } from "react";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  FlaskConical,
-  Droplets,
-  Leaf,
-  Sprout,
-  ChevronRight,
-  ArrowRight,
-} from "lucide-react";
-import { PRODUCTS, COMPANY } from "@/lib/constants";
-import type { Product } from "@/lib/constants";
-import PageBanner from "@/components/ui/PageBanner";
-import ProductDialog from "@/components/ui/ProductDialog";
+import { ArrowRight, Download, Droplets, PackageCheck, ShieldCheck } from "lucide-react";
+import SpecialtyPortfolio from "@/components/sections/SpecialtyPortfolio";
+import { COMPANY } from "@/lib/constants";
+import { AZAGRO_RANGE, COMMON_TARGET_PESTS, mediaUrl } from "@/lib/media";
 
-const iconMap: Record<string, React.ElementType> = {
-  flask: FlaskConical,
-  droplets: Droplets,
-  leaf: Leaf,
-  sprout: Sprout,
+export const metadata: Metadata = {
+  title: "Botanical Crop Protection Products | Ecobiocides",
+  description:
+    "Explore Azagro neem-based botanical pesticides from 300 to 50,000 PPM, plus soil-health, grain-storage and botanical input solutions.",
 };
 
 export default function ProductsPage() {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const openDialog = (product: Product) => {
-    setSelectedProduct(product);
-    setIsDialogOpen(true);
-  };
-
-  const closeDialog = () => {
-    setIsDialogOpen(false);
-    setTimeout(() => setSelectedProduct(null), 200);
-  };
+  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello! I would like to discuss the Ecobiocides product range.")}`;
 
   return (
-    <>
-      <main>
-        <PageBanner
-          badge="Our Products"
-          title="Neem-Based Bio Solutions"
-          subtitle="Scientifically formulated, globally certified organic products for sustainable agriculture and crop protection."
-          backgroundImage="/images/products-banner.svg"
-        />
-
-        {/* Products Grid */}
-        <section className="section-padding bg-white">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-6 sm:grid-cols-2 lg:gap-8">
-              {PRODUCTS.map((product, index) => {
-                const Icon = iconMap[product.icon] || Leaf;
-
-                return (
-                  <motion.div
-                    key={product.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group relative"
-                  >
-                    <div className="relative overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:border-eco-200 hover:shadow-xl hover:shadow-eco-100/50 hover:-translate-y-1">
-                      {/* Green accent bar */}
-                      <div className="h-1 bg-gradient-to-r from-eco-400 via-eco-500 to-eco-600" />
-
-                      <div className="p-6 sm:p-8">
-                        <div className="flex items-start gap-4">
-                          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-eco-50 text-eco-600 transition-all duration-500 group-hover:bg-eco-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-eco-600/30">
-                            <Icon className="h-7 w-7" />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-bold text-gray-900">
-                              {product.title}
-                            </h3>
-                            <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                              {product.shortDescription}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Features preview */}
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {product.features.slice(0, 3).map((feature) => (
-                            <span
-                              key={feature}
-                              className="rounded-full bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600"
-                            >
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* View Details button */}
-                        <button
-                          onClick={() => openDialog(product as unknown as Product)}
-                          className="mt-6 inline-flex items-center gap-2 rounded-full bg-eco-50 px-5 py-2.5 text-sm font-semibold text-eco-700 transition-all hover:bg-eco-600 hover:text-white hover:shadow-lg hover:shadow-eco-600/20"
-                        >
-                          View Details
-                          <ChevronRight className="h-4 w-4" />
-                        </button>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Custom formulation CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-eco-800 via-eco-900 to-gray-900 p-8 text-center sm:p-12"
-            >
-              <h3 className="text-2xl font-bold text-white sm:text-3xl">
-                Need a Custom Formulation?
-              </h3>
-              <p className="mx-auto mt-3 max-w-xl text-base text-white/70">
-                Our technical team can develop bespoke neem-based solutions tailored to your specific crop protection requirements.
-              </p>
-              <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link
-                  href="/#contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-eco-800 transition-all hover:bg-eco-50 hover:shadow-lg"
-                >
-                  Contact Our Team
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a
-                  href={`https://wa.me/${COMPANY.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello! I'd like to discuss a custom formulation.")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10"
-                >
-                  WhatsApp Us
-                </a>
-              </div>
-            </motion.div>
+    <main>
+      <section className="relative isolate min-h-[620px] overflow-hidden bg-emerald-950 pt-24 text-white sm:pt-28">
+        <Image src={mediaUrl("/media/products/azagro-10000-family-storm.webp")} alt="Azagro product range in an agricultural landscape" fill priority loading="eager" fetchPriority="high" className="object-cover object-center" sizes="100vw" />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/80 to-emerald-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-transparent" />
+        <div className="relative mx-auto flex min-h-[520px] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="eyebrow text-lime-300">The product portfolio</p>
+            <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl">Plant-powered protection, from field to formulation.</h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white/75">Explore the complete Azagro concentration system and specialist botanical inputs for crop protection, soil health and grain storage.</p>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime-300 px-7 py-4 text-sm font-extrabold text-emerald-950 transition-colors hover:bg-lime-200">
+              Discuss your requirement
+              <ArrowRight className="h-4 w-4" />
+            </a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      <ProductDialog
-        product={selectedProduct}
-        isOpen={isDialogOpen}
-        onClose={closeDialog}
-      />
-    </>
+      <section className="bg-white py-20 sm:py-24 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="eyebrow text-emerald-700">Azagro emulsifiable concentrates</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">Choose the right concentration.</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">Six supplied technical sheets are available below. Product labels and agronomic guidance remain the authority for final application decisions.</p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {AZAGRO_RANGE.map((product) => (
+              <article key={product.ppm} className="group overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl">
+                <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-[#fbfdf8] to-[#edf5e8]">
+                  <Image src={mediaUrl(product.bottle)} alt={`Azagro ${product.ppm} bottle`} fill className="object-contain p-5 transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" />
+                  <span className={`absolute left-5 top-5 rounded-full bg-gradient-to-r ${product.tone} px-3 py-2 text-[10px] font-black uppercase tracking-[0.15em] text-emerald-950 shadow-sm`}>{product.active}</span>
+                </div>
+                <div className="p-6 sm:p-7">
+                  <h3 className="font-display text-2xl font-extrabold text-emerald-950">Azagro {product.ppm}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{product.summary}</p>
+                  <div className="mt-5 grid grid-cols-2 gap-3">
+                    <div className="rounded-2xl bg-emerald-50 p-3.5">
+                      <Droplets className="h-4 w-4 text-emerald-700" />
+                      <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">Foliar rate</p>
+                      <p className="mt-1 text-sm font-bold text-emerald-950">{product.foliar}</p>
+                    </div>
+                    <div className="rounded-2xl bg-amber-50 p-3.5">
+                      <PackageCheck className="h-4 w-4 text-amber-700" />
+                      <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">Pack range</p>
+                      <p className="mt-1 text-sm font-bold text-emerald-950">100 ml–200 L</p>
+                    </div>
+                  </div>
+                  <a href={mediaUrl(product.sheet)} download className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-800 px-5 py-3.5 text-sm font-bold text-white transition-colors hover:bg-emerald-900">
+                    <Download className="h-4 w-4" />
+                    Download technical sheet
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-[1.8rem] border border-emerald-100 bg-emerald-50 p-6 sm:p-8">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <div className="flex items-center gap-2 text-emerald-800"><ShieldCheck className="h-5 w-5" /><p className="text-sm font-extrabold">Common target pest spectrum</p></div>
+                <div className="mt-4 flex flex-wrap gap-2">{COMMON_TARGET_PESTS.map((pest) => <span key={pest} className="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-emerald-800 shadow-sm">{pest}</span>)}</div>
+              </div>
+              <p className="max-w-lg text-sm leading-6 text-emerald-950/65">The supplied sheets describe brownish EC liquids with characteristic neem odor, water emulsification and a two-year shelf life under recommended storage conditions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SpecialtyPortfolio />
+
+      <section className="bg-emerald-950 py-20 text-white">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Need formulation or bulk-supply guidance?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-white/65">Share your crop, pest pressure, geography and pack requirement with our technical team.</p>
+          <Link href="/#contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime-300 px-7 py-4 text-sm font-extrabold text-emerald-950 hover:bg-lime-200">Contact Ecobiocides <ArrowRight className="h-4 w-4" /></Link>
+        </div>
+      </section>
+    </main>
   );
 }

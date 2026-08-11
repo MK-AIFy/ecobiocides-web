@@ -1,11 +1,11 @@
 import Hero from "@/components/sections/Hero";
 import TrustBadges from "@/components/sections/TrustBadges";
-import ProductsPreview from "@/components/sections/ProductsPreview";
+import AzagroRange from "@/components/sections/AzagroRange";
+import SpecialtyPortfolio from "@/components/sections/SpecialtyPortfolio";
 import EnvironmentalStory from "@/components/sections/EnvironmentalStory";
 import TechnologyScience from "@/components/sections/TechnologyScience";
-import IndustriesPreview from "@/components/sections/IndustriesPreview";
-import Sustainability from "@/components/sections/Sustainability";
 import AboutPreview from "@/components/sections/AboutPreview";
+import FieldMedia from "@/components/sections/FieldMedia";
 import CertificationsPreview from "@/components/sections/CertificationsPreview";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
@@ -15,12 +15,12 @@ export default function Home() {
     <main>
       <Hero />
       <TrustBadges />
-      <ProductsPreview />
+      <AzagroRange />
+      <SpecialtyPortfolio />
       <EnvironmentalStory />
       <TechnologyScience />
-      <IndustriesPreview />
-      <Sustainability />
       <AboutPreview />
+      <FieldMedia />
       <CertificationsPreview />
       <Testimonials />
       <Contact />

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { TECHNOLOGY_POINTS } from "@/lib/constants";
 import { Check } from "lucide-react";
-import { fadeInUp, fadeInLeft, fadeInRight, viewportOnce } from "@/lib/animations";
+import { fadeInLeft, fadeInRight, viewportOnce } from "@/lib/animations";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -26,10 +26,10 @@ export default function TechnologyScience() {
           >
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl shadow-eco-900/10">
               <Image
-                src={`${basePath}/images/photos/neem-leaves.jpg`}
-                alt="Neem leaves — the botanical foundation of our eco-safe technology"
+                src={`${basePath}/media/story/manufacturing-process.webp`}
+                alt="Neem extraction, formulation, quality control and packing process"
                 fill
-                className="object-cover"
+                className="bg-white object-contain"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-eco-900/40 via-eco-900/10 to-transparent" />
