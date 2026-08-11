@@ -1,76 +1,71 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
+import { mediaUrl } from "@/lib/media";
 
 interface PageBannerProps {
   title: string;
   subtitle?: string;
   badge?: string;
-  backgroundImage?: string;
+  backgroundImage: string;
+  imagePosition?: string;
+  highlights?: readonly string[];
 }
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function PageBanner({
   title,
   subtitle,
   badge,
   backgroundImage,
+  imagePosition = "center",
+  highlights = [],
 }: PageBannerProps) {
-  const bgUrl = backgroundImage
-    ? `${basePath}${backgroundImage}`
-    : `${basePath}/images/hero-field.svg`;
-
   return (
-    <section className="relative flex min-h-[45vh] items-end overflow-hidden bg-eco-900 sm:min-h-[50vh]">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('${bgUrl}')` }}
+    <section className="relative isolate min-h-[640px] overflow-hidden bg-emerald-950 pt-24 text-white sm:pt-28">
+      <Image
+        src={mediaUrl(backgroundImage)}
+        alt=""
+        fill
+        priority
+        loading="eager"
+        fetchPriority="high"
+        className="object-cover"
+        style={{ objectPosition: imagePosition }}
+        sizes="100vw"
       />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,35,22,.96)_0%,rgba(2,35,22,.87)_48%,rgba(2,35,22,.34)_78%,rgba(2,35,22,.55)_100%)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-emerald-950/20" />
+      <div className="absolute -left-24 top-1/3 h-72 w-72 rounded-full bg-lime-300/15 blur-3xl" />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-eco-950/90 via-eco-900/60 to-eco-800/30" />
-
-      {/* Dot pattern */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage: `radial-gradient(circle, #ffffff 1px, transparent 1px)`,
-          backgroundSize: "32px 32px",
-        }}
-      />
-
-      {/* Content */}
-      <div className="relative mx-auto w-full max-w-7xl px-4 pb-12 pt-36 sm:px-6 sm:pb-16 lg:px-8">
-        {badge && (
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.5 }}
-            className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80 backdrop-blur-sm"
-          >
-            {badge}
-          </motion.span>
-        )}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+      <div className="relative mx-auto flex min-h-[520px] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
+          transition={{ duration: 0.65 }}
+          className="max-w-3xl"
         >
-          {title}
-        </motion.h1>
-        {subtitle && (
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.5 }}
-            className="mt-4 max-w-2xl text-lg leading-relaxed text-white/70"
-          >
-            {subtitle}
-          </motion.p>
-        )}
+          {badge && <p className="eyebrow text-lime-300">{badge}</p>}
+          <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+            {title}
+          </h1>
+          {subtitle && (
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/75 sm:text-xl">
+              {subtitle}
+            </p>
+          )}
+          {highlights.length > 0 && (
+            <div className="mt-8 flex flex-wrap gap-3">
+              {highlights.map((highlight) => (
+                <span key={highlight} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold text-white/85 backdrop-blur-md">
+                  <CheckCircle2 className="h-4 w-4 text-lime-300" />
+                  {highlight}
+                </span>
+              ))}
+            </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );

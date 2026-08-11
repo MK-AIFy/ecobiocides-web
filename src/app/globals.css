@@ -45,6 +45,17 @@ html {
 body {
   background: #ffffff;
   color: #0f172a;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video {
+  max-width: 100%;
 }
 
 .eyebrow {

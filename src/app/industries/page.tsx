@@ -1,18 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Wheat,
-  Leaf,
-  TreePine,
-  Flower2,
-  Pill,
-  Globe,
-  ArrowRight,
-} from "lucide-react";
-import { INDUSTRIES } from "@/lib/constants";
+import { motion } from "framer-motion";
+import { ArrowRight, Flower2, Globe, Leaf, Pill, TreePine, Wheat } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
+import { INDUSTRIES } from "@/lib/constants";
+import { mediaUrl } from "@/lib/media";
+
+const industryVisuals = [
+  "/media/story/regenerative-farm.webp",
+  "/media/story/indian-farmer.webp",
+  "/media/story/neem-shield.webp",
+  "/media/story/seedling-growth.webp",
+  "/media/story/botanical-oils.webp",
+  "/media/story/manufacturing-process.webp",
+] as const;
 
 const iconMap: Record<string, React.ElementType> = {
   wheat: Wheat,
@@ -27,73 +30,72 @@ export default function IndustriesPage() {
   return (
     <main>
       <PageBanner
-        badge="Industries We Serve"
-        title="Trusted Across Sectors"
-        subtitle="From small-scale organic farms to large plantation estates — our bio solutions protect crops and livelihoods worldwide."
-        backgroundImage="/images/industries-banner.svg"
+        badge="Industries we serve"
+        title="Botanical solutions, built around real applications."
+        subtitle="From crop production and plantations to organic inputs, technical formulation and international supply, our portfolio adapts to distinct operating needs."
+        backgroundImage="/media/story/regenerative-farm.webp"
+        imagePosition="center 58%"
+        highlights={["Agriculture", "Botanical formulation", "Bulk and export supply"]}
       />
 
-      {/* Industries Grid */}
-      <section className="section-padding bg-white">
+      <section className="bg-white py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="eyebrow text-emerald-700">Sector-specific value</p>
+              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">One botanical platform. Multiple pathways to impact.</h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-slate-600">We connect product strength, application format, pack size and technical guidance to the way each customer grows, formulates, stores or distributes.</p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {INDUSTRIES.map((industry, index) => {
               const Icon = iconMap[industry.icon] || Leaf;
-
               return (
-                <motion.div
-                  key={industry.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                  whileHover={{ y: -6 }}
-                  className="group relative overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-eco-200 hover:shadow-xl hover:shadow-eco-100/50 sm:p-8"
-                >
-                  {/* Background accent */}
-                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-eco-50/0 transition-all duration-700 group-hover:bg-eco-50/80 group-hover:scale-150" />
-
-                  {/* Icon */}
-                  <div className="relative mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-eco-50 text-eco-600 transition-all duration-300 group-hover:bg-eco-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-eco-600/30">
-                    <Icon className="h-7 w-7" />
+                <motion.article key={industry.title} initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.07 }} className="group overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl">
+                  <div className="relative aspect-[3/2] overflow-hidden bg-emerald-50">
+                    <Image src={mediaUrl(industryVisuals[index])} alt="" fill className={`${index === 5 ? "object-contain bg-white p-2" : "object-cover"} transition-transform duration-700 group-hover:scale-[1.025]`} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/55 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-emerald-800 shadow-lg"><Icon className="h-5 w-5" /></div>
                   </div>
-
-                  <h3 className="relative text-xl font-bold text-gray-900">
-                    {industry.title}
-                  </h3>
-                  <p className="relative mt-3 text-sm leading-relaxed text-gray-600">
-                    {industry.description}
-                  </p>
-
-                  {/* Decorative corner */}
-                  <div className="absolute -bottom-1 -right-1 h-20 w-20 rounded-tl-3xl bg-eco-50/0 transition-all duration-500 group-hover:bg-eco-50" />
-                </motion.div>
+                  <div className="p-6 sm:p-7">
+                    <h3 className="font-display text-2xl font-extrabold text-emerald-950">{industry.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{industry.description}</p>
+                  </div>
+                </motion.article>
               );
             })}
           </div>
+        </div>
+      </section>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-eco-800 via-eco-900 to-gray-900 p-8 text-center sm:p-12"
-          >
-            <h3 className="text-2xl font-bold text-white sm:text-3xl">
-              Serving Your Industry
-            </h3>
-            <p className="mx-auto mt-3 max-w-xl text-base text-white/70">
-              Whatever your agricultural or industrial need, we have the neem-based solution. Talk to our experts today.
-            </p>
-            <Link
-              href="/#contact"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-eco-800 transition-all hover:bg-eco-50 hover:shadow-lg"
-            >
-              Get in Touch
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </motion.div>
+      <section className="bg-[#f4f0e6] py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <p className="eyebrow text-emerald-700">How we support partners</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">From requirement to repeatable supply.</h2>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {[
+              ["01", "Define the application", "Share the crop, pest, geography, formulation or storage requirement."],
+              ["02", "Match the solution", "Align concentration, format, pack size and technical documentation."],
+              ["03", "Plan dependable supply", "Coordinate samples, commercial packs, bulk volumes and delivery expectations."],
+            ].map(([step, title, description]) => (
+              <article key={step} className="rounded-[1.7rem] border border-black/5 bg-white p-7 shadow-sm">
+                <p className="font-display text-4xl font-extrabold text-lime-500">{step}</p>
+                <h3 className="mt-6 text-xl font-extrabold text-emerald-950">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden bg-emerald-950 py-20 text-white">
+        <div className="absolute -right-32 top-0 h-80 w-80 rounded-full bg-lime-300/10 blur-3xl" />
+        <div className="relative mx-auto flex max-w-5xl flex-col items-center justify-between gap-7 px-4 text-center sm:px-6 lg:flex-row lg:text-left">
+          <div><p className="eyebrow text-lime-300">Your industry, our technical team</p><h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">Let’s identify the right botanical pathway.</h2></div>
+          <Link href="/#contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-lime-300 px-7 py-4 text-sm font-extrabold text-emerald-950 transition-colors hover:bg-lime-200">Discuss your requirement <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
     </main>
