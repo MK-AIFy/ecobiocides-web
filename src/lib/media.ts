@@ -147,7 +147,7 @@ export const STORY_GALLERY = [
   { image: "/media/story/pest-macro.webp", title: "Targeted intervention", alt: "Macro view of an agricultural pest" },
   { image: "/media/story/whitefly.webp", title: "Sucking pest control", alt: "Whitefly on a leaf" },
   { image: "/media/story/soil-lab.webp", title: "Soil-led science", alt: "Scientist testing an agricultural soil sample" },
-  { image: "/media/story/manufacturing-process.webp", title: "From neem to finished product", alt: "Neem formulation and packing process infographic" },
+  { image: "/media/factory/botanical-processing-line.webp", title: "From neem to finished product", alt: "Botanical extraction and processing line inside the Ecobiocides factory" },
 ] as const;
 
 export const FIELD_VIDEOS = [
