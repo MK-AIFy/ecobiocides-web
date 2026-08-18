@@ -15,16 +15,59 @@ const capabilities = [
   { icon: Users, title: "Agricultural expertise", description: "A cross-functional team supporting farmers, distributors, formulators and export partners." },
 ];
 
+const factoryGallery = [
+  {
+    src: "/media/factory/factory-aerial-campus.webp",
+    alt: "Aerial view of the Ecobiocides manufacturing campus in Theni",
+    title: "Integrated manufacturing campus",
+    description: "An original aerial view of our production footprint and surrounding industrial campus.",
+    className: "lg:col-span-7",
+    imageClassName: "object-cover",
+  },
+  {
+    src: "/media/factory/factory-aerial-yard.webp",
+    alt: "Aerial view of Ecobiocides production buildings and material handling yard",
+    title: "Connected production areas",
+    description: "Production, storage and material-handling areas coordinated within one facility.",
+    className: "lg:col-span-5",
+    imageClassName: "object-cover",
+  },
+  {
+    src: "/media/factory/processing-tanks.webp",
+    alt: "Stainless steel processing tanks inside the Ecobiocides factory",
+    title: "Batch processing vessels",
+    description: "Dedicated stainless-steel vessels support controlled botanical processing.",
+    className: "lg:col-span-4",
+    imageClassName: "object-cover",
+  },
+  {
+    src: "/media/factory/process-storage-hall.webp",
+    alt: "Process vessels and storage tanks inside the Ecobiocides facility",
+    title: "Process and storage hall",
+    description: "Organised utility lines, vessels and storage support repeatable production workflows.",
+    className: "lg:col-span-4",
+    imageClassName: "object-cover",
+  },
+  {
+    src: "/media/factory/quality-control-lab.webp",
+    alt: "Analytical equipment in the Ecobiocides quality-control laboratory",
+    title: "Quality-control laboratory",
+    description: "Analytical equipment supports product identity, consistency and finished-batch review.",
+    className: "lg:col-span-4",
+    imageClassName: "object-contain",
+  },
+] as const;
+
 export default function AboutPage() {
   return (
     <main>
       <PageBanner
         badge="About Ecobiocides"
-        title="Rooted in neem. Built for modern agriculture."
-        subtitle="Since 1991, Ecobiocides has combined botanical knowledge, formulation science and disciplined manufacturing to advance safer crop protection."
-        backgroundImage="/media/story/indian-farmer.webp"
-        imagePosition="center 58%"
-        highlights={[`${COMPANY.experience}+ years of experience`, "Neem-based expertise", "India to global markets"]}
+        title="Original manufacturing. Botanical expertise."
+        subtitle="Since 1991, Ecobiocides has combined botanical knowledge, formulation science and disciplined manufacturing at its Theni facility to advance safer crop protection."
+        backgroundImage="/media/factory/factory-exterior.webp"
+        imagePosition="center 52%"
+        highlights={[`${COMPANY.experience}+ years of experience`, "Integrated factory", "In-house quality control"]}
       />
 
       <section className="bg-white py-20 sm:py-24 lg:py-28">
@@ -44,7 +87,7 @@ export default function AboutPage() {
           </div>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="overflow-hidden rounded-[2rem] border border-emerald-100 bg-[#f7f5ec] p-3 shadow-xl shadow-emerald-950/10">
             <div className="relative aspect-[3/2] overflow-hidden rounded-[1.45rem] bg-white">
-              <Image src={mediaUrl("/media/story/manufacturing-process.webp")} alt="Ecobiocides neem extraction, formulation, quality control and packing process" fill className="object-contain" sizes="(max-width: 1024px) 100vw, 55vw" />
+              <Image src={mediaUrl("/media/factory/botanical-processing-line.webp")} alt="Botanical extraction and processing line inside the Ecobiocides factory" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
             </div>
           </motion.div>
         </div>
@@ -62,6 +105,47 @@ export default function AboutPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-900 text-lime-300"><item.icon className="h-6 w-6" /></div>
                 <h3 className="mt-5 text-xl font-extrabold text-emerald-950">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="factory" className="bg-white py-20 sm:py-24 lg:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="eyebrow text-emerald-700">Inside our facility</p>
+              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">A real factory, shown as it operates.</h2>
+            </div>
+            <p className="max-w-2xl text-lg leading-8 text-slate-600 lg:justify-self-end">
+              These original photographs present our manufacturing campus, processing equipment and quality-control laboratory—giving partners a direct view of the infrastructure behind our botanical portfolio.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 lg:grid-cols-12">
+            {factoryGallery.map((photo, index) => (
+              <motion.article
+                key={photo.src}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: index * 0.05 }}
+                className={`group overflow-hidden rounded-[1.65rem] border border-emerald-100 bg-[#f7f5ec] shadow-sm ${photo.className}`}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+                  <Image
+                    src={mediaUrl(photo.src)}
+                    alt={photo.alt}
+                    fill
+                    className={`${photo.imageClassName} transition-transform duration-700 group-hover:scale-[1.025]`}
+                    sizes={index < 2 ? "(max-width: 1024px) 100vw, 58vw" : "(max-width: 1024px) 100vw, 33vw"}
+                  />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-xl font-extrabold text-emerald-950">{photo.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{photo.description}</p>
+                </div>
               </motion.article>
             ))}
           </div>

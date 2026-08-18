@@ -26,10 +26,10 @@ export default function TechnologyScience() {
           >
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl shadow-eco-900/10">
               <Image
-                src={`${basePath}/media/story/manufacturing-process.webp`}
-                alt="Neem extraction, formulation, quality control and packing process"
+                src={`${basePath}/media/factory/botanical-processing-line.webp`}
+                alt="Botanical extraction and processing line inside the Ecobiocides factory"
                 fill
-                className="bg-white object-contain"
+                className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-eco-900/40 via-eco-900/10 to-transparent" />
