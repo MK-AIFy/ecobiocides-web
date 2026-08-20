@@ -14,7 +14,7 @@ const industryVisuals = [
   "/media/story/neem-shield.webp",
   "/media/story/seedling-growth.webp",
   "/media/story/botanical-oils.webp",
-  "/media/story/manufacturing-process.webp",
+  "/media/factory/factory-aerial-campus.webp",
 ] as const;
 
 const iconMap: Record<string, React.ElementType> = {
@@ -54,7 +54,7 @@ export default function IndustriesPage() {
               return (
                 <motion.article key={industry.title} initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.07 }} className="group overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl">
                   <div className="relative aspect-[3/2] overflow-hidden bg-emerald-50">
-                    <Image src={mediaUrl(industryVisuals[index])} alt="" fill className={`${index === 5 ? "object-contain bg-white p-2" : "object-cover"} transition-transform duration-700 group-hover:scale-[1.025]`} sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" />
+                    <Image src={mediaUrl(industryVisuals[index])} alt="" fill className="object-cover transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" />
                     <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/55 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-emerald-800 shadow-lg"><Icon className="h-5 w-5" /></div>
                   </div>
