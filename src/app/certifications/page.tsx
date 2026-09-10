@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Award, CheckCircle2, FileCheck, Microscope, Shield, ShieldCheck } from "lucide-react";
+import Awards from "@/components/sections/Awards";
 import PageBanner from "@/components/ui/PageBanner";
 import { CERTIFICATIONS } from "@/lib/constants";
 import { mediaUrl } from "@/lib/media";
@@ -20,13 +21,15 @@ export default function CertificationsPage() {
   return (
     <main>
       <PageBanner
-        badge="Certifications and compliance"
+        badge="Awards & certifications"
         title="Quality made visible, documented and repeatable."
         subtitle="Our certifications and operating controls support consistent botanical inputs for organic agriculture, commercial partnerships and global markets."
         backgroundImage="/media/story/neem-shield.webp"
         imagePosition="center"
-        highlights={["Quality management", "Organic-input attestations", "Batch discipline"]}
+        highlights={["District awards: 2007–08 & 2008–09", "Quality management", "Organic-input documentation"]}
       />
+
+      <Awards />
 
       <section className="bg-white py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

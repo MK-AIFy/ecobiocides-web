@@ -1,9 +1,12 @@
+import { AWARDS } from "./company-content";
+import { CURRENT_PRODUCTS } from "./products";
+
 export const COMPANY = {
   name: "Ecobiocides & Botanicals",
   legalName: "Ecobiocides & Botanicals Pvt Ltd",
   tagline: "Nature's Science, Engineered for Agriculture",
   description:
-    "Leading manufacturer of neem-based bio pesticides and organic agricultural inputs. Pioneering sustainable crop protection since 1991.",
+    "Manufacturer of neem oil, neem cake, Azadirachtin and botanical agricultural products, built on the expertise of Karna Oil Mill in Theni, Tamil Nadu.",
   founded: 1991,
   experience: new Date().getFullYear() - 1991,
   investment: "USD 10 Million",
@@ -52,80 +55,15 @@ export interface Product {
   variants?: readonly string[];
 }
 
-export const PRODUCTS = [
-  {
-    id: "azadirachtin-technical",
-    title: "Azadirachtin Technical",
-    shortDescription:
-      "High-purity neem kernel extract powder — the gold standard active ingredient for organic crop protection.",
-    description:
-      "Brown-yellow free-flowing powder extracted from neem kernels. Contains Azadirachtin A (20-28%), Azadirachtin B (2-7%), and other bioactive limonoids. Controls over 400 insect species. Biodegradable with zero toxic residues.",
-    features: [
-      "Azadirachtin A: 20-28%",
-      "Azadirachtin B: 2-7%",
-      "Controls 400+ insect species",
-      "100% biodegradable",
-      "Non-toxic to beneficial organisms",
-    ],
-    icon: "flask",
-  },
-  {
-    id: "azagro-formulations",
-    title: "Azagro EC Formulations",
-    shortDescription:
-      "Ready-to-use emulsifiable concentrates in 300 to 50,000 ppm — precision-engineered for every crop protection need.",
-    description:
-      "Complete range of Azadirachtin-based EC formulations from 300 ppm to 50,000 ppm. Formulated with specially treated neem oil for maximum stability and efficacy. Systemic action suitable for foliar spray, tree injection, and soil drench.",
-    features: [
-      "300ppm to 50,000ppm range",
-      "Emulsifiable concentrate format",
-      "Systemic + contact action",
-      "7-15 day spray intervals",
-      "Safe for pollinators",
-    ],
-    variants: [
-      "Azagro 300 ppm",
-      "Azagro 1500 ppm",
-      "Azagro 3000 ppm",
-      "Azagro 10000 ppm",
-      "Azagro 30000 ppm",
-      "Azagro 50000 ppm",
-    ],
-    icon: "droplets",
-  },
-  {
-    id: "cold-pressed-neem-oil",
-    title: "Cold Pressed Neem Oil",
-    shortDescription:
-      "Premium cold-crushed neem kernel oil with 2,500–3,000 ppm Azadirachtin — nature's broad-spectrum shield.",
-    description:
-      "Extracted from selected neem kernels by cold crushing method. Acts as insecticide and pest resistant at broad spectrum. Contains Azadirachtin (0.2-0.3%), Salanin (0.5-0.6%), and Nimbin (0.4-0.5%). Also used in pharmaceuticals and cosmetics.",
-    features: [
-      "Azadirachtin: 2,500-3,000 ppm",
-      "Cold pressed extraction",
-      "Broad spectrum protection",
-      "Multi-industry applications",
-      "Eco-friendly & biodegradable",
-    ],
-    icon: "leaf",
-  },
-  {
-    id: "neem-cake",
-    title: "Neem Cake",
-    shortDescription:
-      "Nutrient-rich organic manure and soil conditioner — dual-action fertilizer and pest deterrent.",
-    description:
-      "Organic manure byproduct of neem seed oil production. Rich in nitrogen, phosphorus, potassium, calcium, magnesium, and sulphur compounds. Available in powder, flakes, or pellet form. Acts as both fertilizer and pest repellent.",
-    features: [
-      "Nitrogen: 1.5-5%",
-      "Natural pest repellent",
-      "Soil conditioning properties",
-      "Powder, flakes & pellets",
-      "Boosts crop yield significantly",
-    ],
-    icon: "sprout",
-  },
-] as const;
+// Compatibility model for the older product-section components.
+export const PRODUCTS: readonly Product[] = CURRENT_PRODUCTS.map((product) => ({
+  id: product.slug,
+  title: product.name,
+  shortDescription: product.summary,
+  description: product.description,
+  features: product.specifications.map((spec) => `${spec.label}: ${spec.value}`),
+  icon: "leaf",
+}));
 
 export const INDUSTRIES = [
   {
@@ -168,53 +106,15 @@ export const INDUSTRIES = [
 
 export const TIMELINE = [
   {
-    year: 1991,
-    title: "Foundation",
-    description:
-      "KARNA OIL MILL established by Mr. M. Karunakaran for neem oil and neem cake production.",
+    year: "1991",
+    title: "Karna Oil Mill",
+    description: "Mr. M. Karunakaran began neem oil and neem cake production at Karna Oil Mill.",
   },
-  {
-    year: 2000,
-    title: "Recognition",
-    description:
-      "Awarded by Tamil Nadu State Government for excellence in neem-based manufacturing.",
-  },
-  {
-    year: 2008,
-    title: "Government Award",
-    description:
-      "Mr. Karunakaran recognized by TN Government for outstanding contribution to bio-agriculture.",
-  },
-  {
-    year: 2009,
-    title: "Continued Excellence",
-    description:
-      "Second consecutive year of government recognition for industrial excellence.",
-  },
-  {
-    year: 2010,
-    title: "ISO Certification",
-    description:
-      "Achieved ISO 9001:2008 certification, establishing world-class quality management systems.",
-  },
-  {
-    year: 2015,
-    title: "Ecocert Attestation",
-    description:
-      "Received Ecocert organic certification — NPOP, NOP, and EU Organic Regulation compliance.",
-  },
-  {
-    year: 2020,
-    title: "USD 10M Facility",
-    description:
-      "State-of-the-art Azadirachtin manufacturing unit commissioned with $10 million capital investment.",
-  },
-  {
-    year: 2025,
-    title: "Global Expansion",
-    description:
-      "Scaling operations for international markets with expanded product portfolio and production capacity.",
-  },
+  ...AWARDS.map((award) => ({
+    year: award.period,
+    title: award.title,
+    description: `${award.distinction}, presented to ${award.recipient} by ${award.issuer}.`,
+  })),
 ] as const;
 
 export const CERTIFICATIONS = [

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUp, Mail, MapPin, Phone } from "lucide-react";
+import { PRODUCT_CATEGORIES } from "@/lib/products";
 import { COMPANY, NAV_LINKS } from "@/lib/constants";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -42,7 +43,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xs font-extrabold uppercase tracking-[0.16em] text-white/85">Portfolio</h3>
             <ul className="mt-5 space-y-3">
-              {["Azagro EC range", "NeemGrow 3X", "Seaweed Gold Max", "Azavigr grain care", "Botanical oils"].map((product) => <li key={product}><Link href="/products" className="text-sm text-white/52 transition-colors hover:text-lime-300">{product}</Link></li>)}
+              {PRODUCT_CATEGORIES.map((category) => <li key={category.id}><Link href={`/products/#${category.id}`} className="text-sm text-white/52 transition-colors hover:text-lime-300">{category.name}</Link></li>)}
             </ul>
           </div>
 

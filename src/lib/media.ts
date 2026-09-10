@@ -75,63 +75,6 @@ export const AZAGRO_RANGE = [
   },
 ] as const;
 
-export const SPECIALTY_PRODUCTS = [
-  {
-    name: "NeemGrow 3X Granules",
-    category: "Soil Enrichment",
-    image: "/media/specialty/neemgrow-3x.webp",
-    description: "Neem, humic acid and seaweed enriched granules for soil fertility and root development.",
-  },
-  {
-    name: "Seaweed Gold Max",
-    category: "Organic Nutrition",
-    image: "/media/specialty/seaweed-gold-max.webp",
-    description: "A seaweed-based soil enricher with alginic acid, amino acids and humic acid.",
-  },
-  {
-    name: "Azavigr 1%",
-    category: "Grain Protection",
-    image: "/media/specialty/azavigr-1.webp",
-    description: "Neem-based rice and grain storage protection with 1% Azadirachtin.",
-  },
-  {
-    name: "Azavigr 0.15%",
-    category: "Grain Protection",
-    image: "/media/specialty/azavigr-015.webp",
-    description: "A botanical 0.15% Azadirachtin option for rice and grain storage programs.",
-  },
-  {
-    name: "Neem Karanja Oil EC",
-    category: "Botanical Pesticide",
-    image: "/media/specialty/neem-karanja-ec.webp",
-    description: "Neem and karanja botanical actives combined in an oil emulsion concentrate.",
-  },
-  {
-    name: "Azadirachtin Technical Powder",
-    category: "Technical Ingredient",
-    image: "/media/specialty/azadirachtin-powder.webp",
-    description: "A technical botanical input for professional formulation requirements.",
-  },
-  {
-    name: "Neem Cake",
-    category: "Organic Soil Input",
-    image: "/media/specialty/neem-cake.webp",
-    description: "Nutrient-rich organic material that supports soil conditioning and natural pest management.",
-  },
-  {
-    name: "Cold Pressed Neem Oil",
-    category: "Botanical Oil",
-    image: "/media/specialty/neem-oil.webp",
-    description: "Dark, cold-pressed neem oil for agricultural and formulation applications.",
-  },
-  {
-    name: "Karanja Oil",
-    category: "Botanical Oil",
-    image: "/media/specialty/karanja-oil.webp",
-    description: "A plant-derived oil used in botanical crop-protection formulations.",
-  },
-] as const;
-
 export const STORY_GALLERY = [
   { image: "/media/story/regenerative-farm.webp", title: "Regenerative landscapes", alt: "Mountain farm with rows of healthy crops" },
   { image: "/media/story/indian-farmer.webp", title: "Rooted in Indian agriculture", alt: "Farmer working fields with cattle at sunrise" },

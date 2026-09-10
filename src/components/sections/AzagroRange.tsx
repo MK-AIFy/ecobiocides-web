@@ -4,7 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Download, Droplets, Leaf, ShieldCheck } from "lucide-react";
-import { AZAGRO_RANGE, COMMON_TARGET_PESTS, mediaUrl } from "@/lib/media";
+import { COMMON_TARGET_PESTS, mediaUrl } from "@/lib/media";
+
+import { FEATURED_AZAGRO_RANGE as AZAGRO_RANGE } from "@/lib/products";
 
 export default function AzagroRange() {
   const [selectedIndex, setSelectedIndex] = useState(2);
@@ -18,7 +20,7 @@ export default function AzagroRange() {
           <div>
             <p className="eyebrow text-lime-300">The Azagro concentration system</p>
             <h2 className="mt-4 max-w-xl font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-              One botanical platform. Six precise strengths.
+              One botanical platform. Five precise strengths.
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">
@@ -26,7 +28,7 @@ export default function AzagroRange() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
           {AZAGRO_RANGE.map((item, index) => {
             const active = index === selectedIndex;
             return (
@@ -113,9 +115,9 @@ export default function AzagroRange() {
                   <Download className="h-4 w-4" />
                   Download technical sheet
                 </a>
-                <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-6 py-3.5 text-sm font-bold text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-800">
+                <Link href={`/products/azagro-${selected.ppm.split(" ")[0]}-ppm/`} className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 px-6 py-3.5 text-sm font-bold text-slate-700 transition-colors hover:border-emerald-300 hover:text-emerald-800">
                   <Leaf className="h-4 w-4" />
-                  Ask our technical team
+                  About this product
                 </Link>
               </div>
               <p className="mt-4 text-[11px] leading-5 text-slate-400">Application rates are transcribed from the supplied technical data sheets. Follow the product label and local agronomic guidance.</p>

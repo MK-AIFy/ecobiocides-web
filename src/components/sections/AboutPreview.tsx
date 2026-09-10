@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { COMPANY_STORY, AWARDS } from "@/lib/company-content";
+import { FEATURED_AZAGRO_RANGE } from "@/lib/products";
 import { COMPANY } from "@/lib/constants";
 import { mediaUrl } from "@/lib/media";
 
@@ -11,7 +13,7 @@ export default function AboutPreview() {
   return (
     <section id="about" className="relative overflow-hidden">
       <div className="relative">
-        <div className="relative h-[30rem] sm:h-[32rem] lg:h-[34rem]">
+        <div className="absolute inset-0">
           <Image
             src={mediaUrl("/media/factory/factory-aerial-campus.webp")}
             alt="Aerial view of the Ecobiocides manufacturing campus in Theni"
@@ -22,7 +24,7 @@ export default function AboutPreview() {
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,44,28,.92)_0%,rgba(2,44,28,.77)_52%,rgba(2,44,28,.28)_100%)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-eco-950/55 via-transparent to-eco-950/20" />
-        <div className="absolute inset-0 flex items-center">
+        <div className="relative flex min-h-[30rem] items-center py-16 sm:min-h-[32rem] lg:min-h-[34rem]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-8 lg:grid-cols-2">
               <motion.div
@@ -35,18 +37,16 @@ export default function AboutPreview() {
                   Our Manufacturing Base
                 </span>
                 <h2 className="text-3xl font-bold text-white sm:text-4xl">
-                  Built in Theni. Ready for Global Agriculture.
+                  Rooted in Karna Oil Mill. Growing through neem science.
                 </h2>
                 <p className="mt-3 max-w-lg text-base leading-relaxed text-white/70">
-                  An original aerial view of the integrated campus where botanical
-                  extraction, formulation and quality control come together—backed by
-                  {` ${COMPANY.experience}+`} years of neem-industry experience.
+                  {COMPANY_STORY.expertise}
                 </p>
                 <Link
-                  href="/about#factory"
+                  href="/about/"
                   className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-eco-800 transition-all hover:bg-eco-50 hover:shadow-lg hover:gap-3"
                 >
-                  Explore Our Facility
+                  Our story & facility
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </motion.div>
@@ -61,8 +61,8 @@ export default function AboutPreview() {
                 {[
                   { value: `${COMPANY.experience}+`, label: "Years" },
                   { value: "$10M", label: "Investment" },
-                  { value: "400+", label: "Insects" },
-                  { value: "4", label: "Certifications" },
+                  { value: String(FEATURED_AZAGRO_RANGE.length), label: "Azagro EC strengths" },
+                  { value: String(AWARDS.length), label: "District awards" },
                 ].map((stat) => (
                   <div
                     key={stat.label}

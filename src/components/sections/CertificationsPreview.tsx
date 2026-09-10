@@ -45,10 +45,11 @@ export default function CertificationsPreview() {
             Certifications
           </span>
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Globally Certified Quality
+            Quality & Recognition
           </h2>
         </motion.div>
 
+        <p className="mx-auto mb-8 max-w-3xl text-center text-base leading-7 text-white/80">District Best Entrepreneur awards for 2007–08 and 2008–09, presented by the Department of Industries and Commerce, Government of Tamil Nadu.</p>
         <div className="flex flex-wrap justify-center gap-6">
           {CERTIFICATIONS.map((cert, index) => {
             const Icon = certIcons[index % certIcons.length];
@@ -88,7 +89,7 @@ export default function CertificationsPreview() {
             href="/certifications"
             className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:gap-3"
           >
-            View All Certifications
+            View Awards & Certifications
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>

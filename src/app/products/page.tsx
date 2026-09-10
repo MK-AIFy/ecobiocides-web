@@ -1,97 +1,48 @@
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Download, Droplets, PackageCheck, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import CatalogProductCard from "@/components/ui/CatalogProductCard";
 import SpecialtyPortfolio from "@/components/sections/SpecialtyPortfolio";
-import { COMPANY } from "@/lib/constants";
-import { AZAGRO_RANGE, COMMON_TARGET_PESTS, mediaUrl } from "@/lib/media";
+import { CURRENT_PRODUCTS, PRODUCT_CATEGORIES, getProduct, productHref } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Botanical Crop Protection Products | Ecobiocides",
-  description:
-    "Explore Azagro neem-based botanical pesticides from 300 to 50,000 PPM, plus soil-health, grain-storage and botanical input solutions.",
+  title: "Products",
+  description: "Explore Azagro EC, botanical oils, Neem Activa, Karanja Activa, Azavigr, NitroRich biostimulant, granules, Neem Cake and Azadirachtin Technical Powder.",
+  alternates: { canonical: siteUrl("/products/") },
 };
 
 export default function ProductsPage() {
-  const whatsappUrl = `https://wa.me/${COMPANY.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello! I would like to discuss the Ecobiocides product range.")}`;
-
+  const azagroProducts = CURRENT_PRODUCTS.filter((product) => product.categoryId === "azagro-ec");
+  const additionalProduct = getProduct("azagro-10000-ppm")!;
   return (
     <main>
-      <section className="relative isolate min-h-[620px] overflow-hidden bg-emerald-950 pt-24 text-white sm:pt-28">
-        <Image src={mediaUrl("/media/products/azagro-10000-family-storm.webp")} alt="Azagro product range in an agricultural landscape" fill priority loading="eager" fetchPriority="high" className="object-cover object-center" sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950 via-emerald-950/80 to-emerald-950/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-transparent" />
-        <div className="relative mx-auto flex min-h-[520px] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="eyebrow text-lime-300">The product portfolio</p>
-            <h1 className="mt-5 font-display text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-6xl">Plant-powered protection, from field to formulation.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/75">Explore the complete Azagro concentration system and specialist botanical inputs for crop protection, soil health and grain storage.</p>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime-300 px-7 py-4 text-sm font-extrabold text-emerald-950 transition-colors hover:bg-lime-200">
-              Discuss your requirement
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 sm:py-24 lg:py-28">
+      <section className="bg-emerald-950 pb-14 pt-32 text-white sm:pb-20 sm:pt-40">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="eyebrow text-emerald-700">Azagro emulsifiable concentrates</p>
-            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">Choose the right concentration.</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">Six supplied technical sheets are available below. Product labels and agronomic guidance remain the authority for final application decisions.</p>
-          </div>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {AZAGRO_RANGE.map((product) => (
-              <article key={product.ppm} className="group overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl">
-                <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-[#fbfdf8] to-[#edf5e8]">
-                  <Image src={mediaUrl(product.bottle)} alt={`Azagro ${product.ppm} bottle`} fill className="object-contain p-5 transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" />
-                  <span className={`absolute left-5 top-5 rounded-full bg-gradient-to-r ${product.tone} px-3 py-2 text-[10px] font-black uppercase tracking-[0.15em] text-emerald-950 shadow-sm`}>{product.active}</span>
-                </div>
-                <div className="p-6 sm:p-7">
-                  <h3 className="font-display text-2xl font-extrabold text-emerald-950">Azagro {product.ppm}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{product.summary}</p>
-                  <div className="mt-5 grid grid-cols-2 gap-3">
-                    <div className="rounded-2xl bg-emerald-50 p-3.5">
-                      <Droplets className="h-4 w-4 text-emerald-700" />
-                      <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">Foliar rate</p>
-                      <p className="mt-1 text-sm font-bold text-emerald-950">{product.foliar}</p>
-                    </div>
-                    <div className="rounded-2xl bg-amber-50 p-3.5">
-                      <PackageCheck className="h-4 w-4 text-amber-700" />
-                      <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-slate-500">Pack range</p>
-                      <p className="mt-1 text-sm font-bold text-emerald-950">100 ml–200 L</p>
-                    </div>
-                  </div>
-                  <a href={mediaUrl(product.sheet)} download className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald-800 px-5 py-3.5 text-sm font-bold text-white transition-colors hover:bg-emerald-900">
-                    <Download className="h-4 w-4" />
-                    Download technical sheet
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-12 rounded-[1.8rem] border border-emerald-100 bg-emerald-50 p-6 sm:p-8">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <div className="flex items-center gap-2 text-emerald-800"><ShieldCheck className="h-5 w-5" /><p className="text-sm font-extrabold">Common target pest spectrum</p></div>
-                <div className="mt-4 flex flex-wrap gap-2">{COMMON_TARGET_PESTS.map((pest) => <span key={pest} className="rounded-full bg-white px-3 py-1.5 text-xs font-bold text-emerald-800 shadow-sm">{pest}</span>)}</div>
-              </div>
-              <p className="max-w-lg text-sm leading-6 text-emerald-950/65">The supplied sheets describe brownish EC liquids with characteristic neem odor, water emulsification and a two-year shelf life under recommended storage conditions.</p>
-            </div>
-          </div>
+          <p className="text-sm font-bold uppercase tracking-widest text-lime-300">Our products</p>
+          <h1 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-tight sm:text-6xl">Botanical solutions for every stage of agriculture.</h1>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/80">Discover our Azagro EC range, botanical oils, biostimulants and specialist inputs. Explore each product for details and technical enquiries.</p>
+          <nav aria-label="Product categories" className="mt-10 border-t border-white/20 pt-7">
+            <p className="mb-4 text-sm font-semibold text-lime-200">Browse products</p>
+            <ul className="flex flex-wrap gap-2">{PRODUCT_CATEGORIES.map((category) => <li key={category.id}><a href={`#${category.id}`} className="inline-flex min-h-11 items-center rounded-full border border-white/25 px-4 py-2 text-sm font-semibold transition-colors hover:bg-white hover:text-emerald-950">{category.name}</a></li>)}</ul>
+          </nav>
         </div>
       </section>
-
-      <SpecialtyPortfolio />
-
-      <section className="bg-emerald-950 py-20 text-white">
+      <section id="azagro-ec" className="scroll-mt-24 bg-white py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">Azadirachtin-based formulations</p>
+          <h2 className="mt-3 font-display text-4xl font-extrabold text-emerald-950">Azagro EC</h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">Five concentrations: 300, 1,500, 3,000, 30,000 and 50,000 ppm. Each product has its own details and downloadable technical sheet.</p>
+          <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{azagroProducts.map((product) => <CatalogProductCard key={product.slug} product={product} />)}</div>
+          <p className="mt-8 rounded-2xl bg-emerald-50 p-5 text-base leading-7 text-emerald-950">Looking for Azagro 10,000 ppm? <Link href={productHref(additionalProduct)} className="font-bold underline underline-offset-4">View its product information and technical sheet.</Link></p>
+        </div>
+      </section>
+      <SpecialtyPortfolio showPortfolioLink={false} />
+      <section className="bg-emerald-950 py-16 text-white">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Need formulation or bulk-supply guidance?</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-white/65">Share your crop, pest pressure, geography and pack requirement with our technical team.</p>
-          <Link href="/#contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime-300 px-7 py-4 text-sm font-extrabold text-emerald-950 hover:bg-lime-200">Contact Ecobiocides <ArrowRight className="h-4 w-4" /></Link>
+          <h2 className="font-display text-3xl font-bold">Discuss your product requirements</h2>
+          <p className="mt-4 text-lg leading-8 text-white/80">Our technical team can help with product specifications, documentation and supply enquiries.</p>
+          <Link href="/#contact" className="mt-7 inline-flex items-center gap-2 rounded-full bg-lime-300 px-7 py-4 font-bold text-emerald-950">Contact Ecobiocides <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
     </main>

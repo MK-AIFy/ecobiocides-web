@@ -107,10 +107,7 @@ export default function Contact() {
     window.location.href = `mailto:${COMPANY.emails[0]}?subject=${subject}&body=${body}`;
 
     setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", city: "", message: "" });
-    }, 5000);
+
   };
 
   const whatsappUrl = `https://wa.me/${COMPANY.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello! I'd like to inquire about your products.")}`;
@@ -257,8 +254,7 @@ export default function Contact() {
                   Request a Quote
                 </h3>
                 <p className="mt-1 text-sm text-white/80">
-                  Fill in the form and our team will get back to you within 24
-                  hours.
+                  Prepare your enquiry, then send it from your email app.
                 </p>
               </div>
 
@@ -268,11 +264,12 @@ export default function Contact() {
                     <CheckCircle2 className="h-8 w-8 text-eco-600" />
                   </div>
                   <h4 className="mt-4 text-xl font-bold text-gray-900">
-                    Thank You!
+                    Complete your enquiry in your email app
                   </h4>
                   <p className="mt-2 text-sm text-gray-600">
-                    Your inquiry has been sent. We&apos;ll respond within 24 hours.
+                    Your email app should open with a draft. Send it there to deliver your enquiry. If it does not open, email {COMPANY.emails[0]} or use WhatsApp.
                   </p>
+                  <button type="button" onClick={() => setIsSubmitted(false)} className="mt-6 min-h-11 rounded-full border border-eco-200 px-6 py-3 font-semibold text-eco-800">Return to your enquiry</button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="p-6 sm:p-8" noValidate>
@@ -433,7 +430,7 @@ export default function Contact() {
                     className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-eco-600 to-eco-700 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-eco-600/25 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-eco-600/35 sm:w-auto"
                   >
                     <Send className="h-4 w-4" />
-                    Send Message
+                    Prepare Email Enquiry
                   </button>
                 </form>
               )}

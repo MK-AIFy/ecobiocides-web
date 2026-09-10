@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Flower2, Globe, Leaf, Pill, TreePine, Wheat } from "lucide-react";
+import Manufacturing from "@/components/sections/Manufacturing";
 import PageBanner from "@/components/ui/PageBanner";
 import { INDUSTRIES } from "@/lib/constants";
 import { mediaUrl } from "@/lib/media";
@@ -30,13 +31,15 @@ export default function IndustriesPage() {
   return (
     <main>
       <PageBanner
-        badge="Industries we serve"
-        title="Botanical solutions, built around real applications."
-        subtitle="From crop production and plantations to organic inputs, technical formulation and international supply, our portfolio adapts to distinct operating needs."
-        backgroundImage="/media/story/regenerative-farm.webp"
+        badge="Manufacturing & industries"
+        title="Neem expertise, from processing to people."
+        subtitle="Integrated neem manufacturing, research and a skilled workforce supporting agricultural and horticultural customers in India and international markets."
+        backgroundImage="/media/factory/factory-aerial-campus.webp"
         imagePosition="center 58%"
         highlights={["Agriculture", "Botanical formulation", "Bulk and export supply"]}
       />
+
+      <Manufacturing />
 
       <section className="bg-white py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

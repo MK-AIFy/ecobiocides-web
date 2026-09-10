@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { CURRENT_PRODUCTS, productHref } from "@/lib/products";
+import { AWARDS } from "@/lib/company-content";
+import { siteUrl } from "@/lib/site";
 import { COMPANY } from "@/lib/constants";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -13,7 +16,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(COMPANY.website),
+  metadataBase: new URL(siteUrl()),
   title: {
     default: `${COMPANY.name} — Botanical Crop Protection, Made Precise`,
     template: `%s | ${COMPANY.name}`,
@@ -53,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: COMPANY.website,
+    url: siteUrl(),
     siteName: COMPANY.name,
     title: `${COMPANY.name} — Botanical Crop Protection, Made Precise`,
     description: COMPANY.description,
@@ -73,7 +76,7 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
   alternates: {
-    canonical: COMPANY.website,
+    canonical: siteUrl(),
   },
   category: "Environmental Technology",
 };
@@ -84,8 +87,9 @@ const jsonLd = {
   "@type": "Organization",
   name: COMPANY.legalName,
   alternateName: COMPANY.name,
-  url: COMPANY.website,
-  logo: `${COMPANY.website}/logo.png`,
+  url: siteUrl(),
+  logo: siteUrl("/ecobiosides-logo.png"),
+  award: AWARDS.map((award) => `${award.title} (${award.distinction}), ${award.period}`),
   description: COMPANY.description,
   foundingDate: "1991",
   address: {
@@ -107,43 +111,15 @@ const jsonLd = {
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Neem-Based Bio Pesticide Products",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "Azadirachtin Technical",
-          description:
-            "High-purity neem kernel extract powder for organic crop protection",
-        },
+    itemListElement: CURRENT_PRODUCTS.map((product) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Product",
+        name: product.name,
+        description: product.summary,
+        url: siteUrl(productHref(product)),
       },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "Azagro EC Formulations",
-          description:
-            "Ready-to-use emulsifiable concentrates from 300 to 50,000 ppm",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "Cold Pressed Neem Oil",
-          description:
-            "Premium cold-crushed neem kernel oil with high Azadirachtin content",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Product",
-          name: "Neem Cake",
-          description: "Organic manure and soil conditioner from neem seeds",
-        },
-      },
-    ],
+    })),
   },
 };
 
@@ -157,7 +133,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
         />
       </head>
       <body className="font-sans antialiased">
