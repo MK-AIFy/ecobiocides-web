@@ -7,7 +7,7 @@ import TechnologyScience from "@/components/sections/TechnologyScience";
 import AboutPreview from "@/components/sections/AboutPreview";
 import FieldMedia from "@/components/sections/FieldMedia";
 import CertificationsPreview from "@/components/sections/CertificationsPreview";
-import Testimonials from "@/components/sections/Testimonials";
+import ProductDirectory from "@/components/sections/ProductDirectory";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
     <main>
       <Hero />
       <TrustBadges />
+      <ProductDirectory />
       <AzagroRange />
       <SpecialtyPortfolio />
       <EnvironmentalStory />
@@ -22,7 +23,6 @@ export default function Home() {
       <AboutPreview />
       <FieldMedia />
       <CertificationsPreview />
-      <Testimonials />
       <Contact />
     </main>
   );

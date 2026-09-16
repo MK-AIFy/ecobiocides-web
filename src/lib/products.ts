@@ -8,6 +8,7 @@ export interface CatalogProduct {
   description: string;
   image?: string;
   imageAlt?: string;
+  imageCaption?: string;
   specifications: readonly { label: string; value: string }[];
   sheet?: string;
   documentationRequired?: boolean;
@@ -68,12 +69,18 @@ export const CATALOG_PRODUCTS: readonly CatalogProduct[] = [
   },
   {
     slug: "neem-activa", name: "Neem Activa", categoryId: "neem-activa",
+    image: "/media/factory/botanical-processing-line.webp",
+    imageAlt: "Ecobiocides botanical processing line",
+    imageCaption: "Factory photograph — Neem Activa pack image coming soon.",
     summary: "Explore Neem Activa with guidance from our technical team.",
     description: "Neem Activa is part of the Ecobiocides product portfolio. Request product specifications, pack options and application information from our team.",
     specifications: [], documentationRequired: true,
   },
   {
     slug: "karanja-activa", name: "Karanja Activa", categoryId: "karanja-activa",
+    image: "/media/factory/processing-tanks.webp",
+    imageAlt: "Processing vessels at the Ecobiocides factory",
+    imageCaption: "Factory photograph — Karanja Activa pack image coming soon.",
     summary: "Explore Karanja Activa with guidance from our technical team.",
     description: "Karanja Activa is part of the Ecobiocides product portfolio. Request product specifications, pack options and application information from our team.",
     specifications: [], documentationRequired: true,
@@ -87,6 +94,9 @@ export const CATALOG_PRODUCTS: readonly CatalogProduct[] = [
   },
   {
     slug: "nitro-rich", name: "NitroRich", categoryId: "biostimulant",
+    image: "/media/factory/quality-control-lab.webp",
+    imageAlt: "Ecobiocides quality-control laboratory",
+    imageCaption: "Factory photograph — NitroRich pack image coming soon.",
     summary: "NitroRich, in our biostimulant product category.",
     description: "NitroRich is the product in our Biostimulant category. Contact our team for composition, product specifications, pack options and application guidance.",
     specifications: [{ label: "Category", value: "Biostimulant" }], documentationRequired: true,

@@ -79,5 +79,26 @@ for (const period of ["2007–08", "2008–09"]) assert(certifications.includes(
 assert(certifications.includes("District Award"), "Award must be identified as a district award");
 const home = readFileSync(join(root, "index.html"), "utf8");
 assert(!home.includes("Six precise strengths"), "Homepage concentration count is stale");
+const about = readFileSync(join(root, "about/index.html"), "utf8");
+const industries = readFileSync(join(root, "industries/index.html"), "utf8");
+for (const [file, { html }] of documents) {
+  assert(!/testimonials|complete visual story/i.test(html), `Removed content remains in ${file}`);
+}
+for (const html of [home, catalog]) {
+  assert(html.includes("Browse products &amp; subcategories"), "Missing page product dropdown");
+  for (const slug of requiredSlugs) assert(html.includes(`/products/${slug}/`), `Dropdown missing ${slug}`);
+  assert(html.includes('<summary') && html.includes('Biostimulant'), "Missing expandable product categories");
+}
+const aboutPreview = home.match(/<section id="about"[\s\S]*?<\/section>/)?.[0];
+assert(aboutPreview && !/<img\b|background-image/.test(aboutPreview), "Home About preview must not have a background image");
+assert(home.includes("https://maps.google.com/?q=10.042108,77.492966"), "Wrong factory directions");
+assert(home.includes("https://maps.google.com/maps?q=10.042108,77.492966&amp;z=16&amp;output=embed"), "Wrong map embed");
+for (const period of ["2007-08", "2008-09"]) assert(about.includes(`/media/awards/best-entrepreneur-${period}.jpeg`), `About missing award ${period}`);
+for (const copy of ["KARNA OIL MILL", "25 years", "USD 10 million", "Harnessing the Power of Neem"]) assert(about.includes(copy), `About missing source content: ${copy}`);
+for (const copy of ["Our core strengths", "Our people &amp; workforce", "Raw material handling", "From Neem to Innovation"]) assert(industries.includes(copy), `Industries missing source content: ${copy}`);
+for (const slug of ["neem-activa", "karanja-activa", "nitro-rich"]) {
+  const html = readFileSync(join(root, "products", slug, "index.html"), "utf8");
+  assert(html.includes("Factory photograph") && html.includes("pack image coming soon"), `Factory fallback must be labelled: ${slug}`);
+}
 assert.equal(new Set(errors).size, 0, [...new Set(errors)].join("\n"));
 console.log(`Verified ${htmlFiles.length} exported HTML files, ${references} local references, 17 product routes, the product hierarchy, awards, canonical URLs and sitemap.`);

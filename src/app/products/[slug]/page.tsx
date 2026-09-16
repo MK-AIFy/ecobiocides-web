@@ -40,7 +40,7 @@ export default async function ProductDetailPage({ params }: Props) {
         </ol></nav>
         <div className="grid min-w-0 gap-10 lg:grid-cols-2 lg:items-start">
           {product.image ? (
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-emerald-50/60"><Image src={mediaUrl(product.image)} alt={product.imageAlt ?? product.name} fill priority className="object-contain p-6" sizes="(max-width: 1024px) 100vw, 50vw" /></div>
+            <figure className="overflow-hidden rounded-3xl bg-emerald-50/60"><div className="relative aspect-[4/3]"><Image src={mediaUrl(product.image)} alt={product.imageAlt ?? product.name} fill priority className="object-contain p-6" sizes="(max-width: 1024px) 100vw, 50vw" /></div>{product.imageCaption && <figcaption className="px-6 pb-6 text-sm leading-6 text-slate-600">{product.imageCaption}</figcaption>}</figure>
           ) : (
             <div className="flex aspect-[4/3] flex-col items-center justify-center gap-5 rounded-3xl bg-emerald-950 p-8 text-center text-lime-200" aria-hidden="true"><Leaf className="h-12 w-12" /><span className="font-display text-4xl font-bold">{product.name}</span></div>
           )}

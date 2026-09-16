@@ -187,6 +187,7 @@ export default function Contact() {
                       {COMPANY.address.zip}, {COMPANY.address.state},{" "}
                       {COMPANY.address.country}
                     </p>
+                    <a href={COMPANY.mapUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-sm font-semibold text-eco-700 underline underline-offset-4">Get directions to our factory</a>
                   </div>
                 </div>
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { PlayCircle } from "lucide-react";
-import { AZAGRO_RANGE, FIELD_VIDEOS, mediaUrl, STORY_GALLERY } from "@/lib/media";
+import { AZAGRO_RANGE, FIELD_VIDEOS, mediaUrl } from "@/lib/media";
 
 const campaignImages = [
   ...AZAGRO_RANGE.map((item) => ({
@@ -69,21 +69,6 @@ export default function FieldMedia() {
           </div>
         </div>
 
-        <div className="mt-16">
-          <p className="eyebrow text-emerald-700">Nature × science</p>
-          <h3 className="mt-3 font-display text-2xl font-extrabold text-slate-950 sm:text-3xl">The complete visual story.</h3>
-          <div className="mt-7 columns-1 gap-4 sm:columns-2 lg:columns-3">
-            {STORY_GALLERY.map((item, index) => (
-              <figure key={item.image} className="group relative mb-4 break-inside-avoid overflow-hidden rounded-[1.4rem] bg-slate-100">
-                <div className={`relative ${index % 5 === 0 ? "aspect-[4/3]" : index % 4 === 0 ? "aspect-square" : "aspect-[3/2]"}`}>
-                  <Image src={mediaUrl(item.image)} alt={item.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.035]" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-                  <figcaption className="absolute inset-x-0 bottom-0 p-5 text-sm font-bold text-white">{item.title}</figcaption>
-                </div>
-              </figure>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

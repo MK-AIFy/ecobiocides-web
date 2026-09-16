@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Factory, FlaskConical, Leaf, Microscope, Users } from "lucide-react";
 import PageBanner from "@/components/ui/PageBanner";
+import Awards from "@/components/sections/Awards";
 import { COMPANY_STORY, AWARDS } from "@/lib/company-content";
 import { FEATURED_AZAGRO_RANGE } from "@/lib/products";
 import { COMPANY, TIMELINE } from "@/lib/constants";
@@ -191,7 +192,7 @@ export default function AboutPage() {
           <ol className="mt-10 space-y-4">
             {TIMELINE.map((item) => <li key={item.year} className="grid gap-4 rounded-2xl border border-emerald-100 p-6 sm:grid-cols-[120px_1fr]"><p className="text-lg font-bold text-emerald-700">{item.year}</p><div><h3 className="text-xl font-bold text-emerald-950">{item.title}</h3><p className="mt-2 text-base leading-7 text-slate-600">{item.description}</p></div></li>)}
           </ol>
-          <Link href="/certifications/#awards" className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-emerald-800">View our award certificates <ArrowRight className="h-4 w-4" /></Link>
+          <Link href="#awards" className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-emerald-800">View our award certificates <ArrowRight className="h-4 w-4" /></Link>
 
           <div className="mt-16 flex flex-col items-center justify-between gap-6 rounded-[2rem] bg-[#f4f0e6] p-7 text-center sm:p-10 lg:flex-row lg:text-left">
             <div><p className="eyebrow text-emerald-700">Build with us</p><h2 className="mt-3 font-display text-3xl font-extrabold text-emerald-950">Let’s advance plant-powered agriculture.</h2></div>
@@ -199,6 +200,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <Awards />
     </main>
   );
 }

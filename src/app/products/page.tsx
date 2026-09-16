@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import CatalogProductCard from "@/components/ui/CatalogProductCard";
 import SpecialtyPortfolio from "@/components/sections/SpecialtyPortfolio";
+import ProductDirectory from "@/components/sections/ProductDirectory";
 import { CURRENT_PRODUCTS, PRODUCT_CATEGORIES, getProduct, productHref } from "@/lib/products";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function ProductsPage() {
           </nav>
         </div>
       </section>
+      <ProductDirectory />
       <section id="azagro-ec" className="scroll-mt-24 bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-widest text-emerald-700">Azadirachtin-based formulations</p>

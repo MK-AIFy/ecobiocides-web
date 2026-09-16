@@ -1,29 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { COMPANY_STORY, AWARDS } from "@/lib/company-content";
 import { FEATURED_AZAGRO_RANGE } from "@/lib/products";
 import { COMPANY } from "@/lib/constants";
-import { mediaUrl } from "@/lib/media";
 
 export default function AboutPreview() {
   return (
-    <section id="about" className="relative overflow-hidden">
+    <section id="about" className="relative overflow-hidden bg-eco-950">
       <div className="relative">
-        <div className="absolute inset-0">
-          <Image
-            src={mediaUrl("/media/factory/factory-aerial-campus.webp")}
-            alt="Aerial view of the Ecobiocides manufacturing campus in Theni"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,44,28,.92)_0%,rgba(2,44,28,.77)_52%,rgba(2,44,28,.28)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-eco-950/55 via-transparent to-eco-950/20" />
         <div className="relative flex min-h-[30rem] items-center py-16 sm:min-h-[32rem] lg:min-h-[34rem]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid items-center gap-8 lg:grid-cols-2">
@@ -37,7 +24,7 @@ export default function AboutPreview() {
                   Our Manufacturing Base
                 </span>
                 <h2 className="text-3xl font-bold text-white sm:text-4xl">
-                  Rooted in Karna Oil Mill. Growing through neem science.
+                  Built in Theni. Ready for Global Agriculture.
                 </h2>
                 <p className="mt-3 max-w-lg text-base leading-relaxed text-white/70">
                   {COMPANY_STORY.expertise}

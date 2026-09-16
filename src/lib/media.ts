@@ -75,24 +75,6 @@ export const AZAGRO_RANGE = [
   },
 ] as const;
 
-export const STORY_GALLERY = [
-  { image: "/media/story/regenerative-farm.webp", title: "Regenerative landscapes", alt: "Mountain farm with rows of healthy crops" },
-  { image: "/media/story/indian-farmer.webp", title: "Rooted in Indian agriculture", alt: "Farmer working fields with cattle at sunrise" },
-  { image: "/media/story/neem-shield.webp", title: "Botanical protection", alt: "Neem seedling protected by a luminous shield" },
-  { image: "/media/story/pest-spectrum.webp", title: "Broad pest spectrum", alt: "Collage of common agricultural pests" },
-  { image: "/media/story/ecocert-approved.webp", title: "Ecocert input approval", alt: "Ecocert Inputs approval artwork" },
-  { image: "/media/story/open-field.webp", title: "Field-scale thinking", alt: "Open green agricultural field under a dramatic sky" },
-  { image: "/media/story/seedling-dew.webp", title: "Healthy beginnings", alt: "Dew-covered seedling emerging from soil" },
-  { image: "/media/story/seedling-minimal.webp", title: "Precision growth", alt: "Minimal seedling against a dark background" },
-  { image: "/media/story/seedling-growth.webp", title: "Stronger establishment", alt: "Young plant growing in illuminated soil" },
-  { image: "/media/story/neem-extract-lab.webp", title: "Neem extracts", alt: "Botanical extracts beside neem leaves and fruit" },
-  { image: "/media/story/botanical-oils.webp", title: "Botanical oils", alt: "Plant-derived oils beside neem fruit" },
-  { image: "/media/story/pest-macro.webp", title: "Targeted intervention", alt: "Macro view of an agricultural pest" },
-  { image: "/media/story/whitefly.webp", title: "Sucking pest control", alt: "Whitefly on a leaf" },
-  { image: "/media/story/soil-lab.webp", title: "Soil-led science", alt: "Scientist testing an agricultural soil sample" },
-  { image: "/media/factory/botanical-processing-line.webp", title: "From neem to finished product", alt: "Botanical extraction and processing line inside the Ecobiocides factory" },
-] as const;
-
 export const FIELD_VIDEOS = [
   { src: "/media/videos/field-story-01.mp4", title: "Field story 01", poster: "/media/products/azagro-300-family.webp" },
   { src: "/media/videos/field-story-02.mp4", title: "Field story 02", poster: "/media/products/azagro-1500-family.webp" },

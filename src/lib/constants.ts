@@ -31,8 +31,8 @@ export const COMPANY = {
     linkedin: "https://linkedin.com/company/ecobiocides",
   },
   website: "https://ecobiocides.com",
-  mapEmbedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.8!2d77.47!3d10.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTheni%2C+Tamil+Nadu!5e0!3m2!1sen!2sin!4v1",
+  mapUrl: "https://maps.google.com/?q=10.042108,77.492966",
+  mapEmbedUrl: "https://maps.google.com/maps?q=10.042108,77.492966&z=16&output=embed",
 } as const;
 
 export const NAV_LINKS = [
@@ -41,7 +41,6 @@ export const NAV_LINKS = [
   { label: "Industries", href: "/industries" },
   { label: "About", href: "/about" },
   { label: "Certifications", href: "/certifications" },
-  { label: "Testimonials", href: "/#testimonials" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 
@@ -140,45 +139,6 @@ export const CERTIFICATIONS = [
     description:
       "Inputs suitable for organic farming according to EC n° 834/2007 & 889/2008 Regulations.",
     category: "Organic",
-  },
-] as const;
-
-export const TESTIMONIALS = [
-  {
-    name: "Dr. Rajesh Kumar",
-    role: "Director of Agriculture",
-    organization: "State Agriculture Department",
-    industry: "Government",
-    quote:
-      "Ecobiocides has transformed our approach to organic pest management. Their Azagro formulations deliver consistent results across diverse crops while maintaining soil health.",
-    rating: 5,
-  },
-  {
-    name: "Anand Subramanian",
-    role: "Plantation Manager",
-    organization: "Southern Spice Estates",
-    industry: "Plantation",
-    quote:
-      "We switched to Ecobiocides' neem-based products three years ago. Our crop yield improved by 22% while eliminating chemical pesticide dependency entirely.",
-    rating: 5,
-  },
-  {
-    name: "Prof. Meera Patel",
-    role: "Research Head",
-    organization: "Institute of Agricultural Sciences",
-    industry: "Research",
-    quote:
-      "The Azadirachtin Technical grade from Ecobiocides meets the highest purity standards. It's our benchmark reference material for neem bioactivity research.",
-    rating: 5,
-  },
-  {
-    name: "Krishnamurthy V.",
-    role: "CEO",
-    organization: "Organic Farms Collective",
-    industry: "Organic Farming",
-    quote:
-      "With Ecocert certifications and ISO quality, Ecobiocides is the only supplier we trust for our certified organic produce destined for European markets.",
-    rating: 5,
   },
 ] as const;
 

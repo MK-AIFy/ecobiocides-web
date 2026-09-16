@@ -50,7 +50,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xs font-extrabold uppercase tracking-[0.16em] text-white/85">Contact</h3>
             <ul className="mt-5 space-y-4 text-sm text-white/52">
-              <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-lime-300" /><span>{COMPANY.address.street}, {COMPANY.address.city} – {COMPANY.address.zip}, {COMPANY.address.state}, {COMPANY.address.country}</span></li>
+              <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-lime-300" /><div><span>{COMPANY.address.street}, {COMPANY.address.city} – {COMPANY.address.zip}, {COMPANY.address.state}, {COMPANY.address.country}</span><a href={COMPANY.mapUrl} target="_blank" rel="noopener noreferrer" className="mt-2 block font-semibold text-lime-300 underline underline-offset-4">Factory directions</a></div></li>
               <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-lime-300" /><div>{COMPANY.phones.map((phone) => <a key={phone} href={`tel:${phone.replace(/\s/g, "")}`} className="block transition-colors hover:text-lime-300">{phone}</a>)}</div></li>
               <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-lime-300" /><a href={`mailto:${COMPANY.emails[0]}`} className="transition-colors hover:text-lime-300">{COMPANY.emails[0]}</a></li>
             </ul>

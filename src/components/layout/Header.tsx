@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/lib/constants";
+import ProductNavigation from "@/components/layout/ProductNavigation";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -72,6 +73,7 @@ export default function Header() {
           <div className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map((link) => {
               const active = isActive(link.href);
+              if (link.href === "/products") return <ProductNavigation key={link.href} active={active} />;
               return (
                 <Link
                   key={link.href}
@@ -135,8 +137,10 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden border-t border-gray-200/50 lg:hidden"
           >
-            <div className="glass-premium space-y-1 px-4 pb-6 pt-4">
-              {NAV_LINKS.map((link, i) => (
+            <div className="glass-premium max-h-[calc(100dvh-5rem)] space-y-1 overflow-y-auto px-4 pb-6 pt-4">
+              {NAV_LINKS.map((link, i) => link.href === "/products" ? (
+                <ProductNavigation key={link.href} mobile active={isActive(link.href)} onNavigate={() => setIsMobileMenuOpen(false)} />
+              ) : (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, x: -20 }}
