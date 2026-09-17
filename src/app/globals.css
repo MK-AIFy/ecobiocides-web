@@ -30,7 +30,7 @@
   /* Surface tokens for layered backgrounds */
   --color-surface: #ffffff;
   --color-surface-secondary: #f8fafb;
-  --color-surface-tertiary: #f1f5f2;
+  --color-surface-tertiary: #f3f1ed;
 
   /* Typography */
   --font-sans: "Avenir Next", Avenir, "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -104,8 +104,8 @@ video {
 
 /* Selection */
 ::selection {
-  background-color: #b5f5cb;
-  color: #032b16;
+  background-color: #e2e8f0;
+  color: #0f172a;
 }
 
 /* Focus outline for accessibility */
@@ -223,14 +223,14 @@ video {
 /* ─── Gradient text utilities ─── */
 
 .text-gradient {
-  background: linear-gradient(135deg, #0e9648 0%, #0f763c 50%, #115d33 100%);
+  background: linear-gradient(135deg, #334155 0%, #1e293b 50%, #0f172a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-light {
-  background: linear-gradient(135deg, #3dd67c 0%, #18b85c 50%, #0e9648 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #e8e0d2 50%, #d4c7af 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -253,7 +253,7 @@ video {
 }
 
 .glass-dark {
-  background: rgba(3, 43, 22, 0.6);
+  background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -263,17 +263,17 @@ video {
 
 .gradient-mesh {
   background:
-    radial-gradient(at 20% 30%, rgba(14, 150, 72, 0.12) 0%, transparent 50%),
-    radial-gradient(at 80% 20%, rgba(61, 214, 124, 0.08) 0%, transparent 50%),
-    radial-gradient(at 40% 80%, rgba(15, 118, 60, 0.06) 0%, transparent 50%),
+    radial-gradient(at 20% 30%, rgba(100, 116, 139, 0.12) 0%, transparent 50%),
+    radial-gradient(at 80% 20%, rgba(100, 116, 139, 0.08) 0%, transparent 50%),
+    radial-gradient(at 40% 80%, rgba(100, 116, 139, 0.06) 0%, transparent 50%),
     radial-gradient(at 90% 70%, rgba(191, 169, 135, 0.06) 0%, transparent 50%);
 }
 
 .gradient-mesh-animated {
   background:
-    radial-gradient(at 20% 30%, rgba(14, 150, 72, 0.15) 0%, transparent 50%),
-    radial-gradient(at 80% 20%, rgba(61, 214, 124, 0.1) 0%, transparent 50%),
-    radial-gradient(at 40% 80%, rgba(15, 118, 60, 0.08) 0%, transparent 50%),
+    radial-gradient(at 20% 30%, rgba(100, 116, 139, 0.15) 0%, transparent 50%),
+    radial-gradient(at 80% 20%, rgba(100, 116, 139, 0.1) 0%, transparent 50%),
+    radial-gradient(at 40% 80%, rgba(100, 116, 139, 0.08) 0%, transparent 50%),
     radial-gradient(at 90% 70%, rgba(191, 169, 135, 0.06) 0%, transparent 50%);
   background-size: 200% 200%;
   animation: gradient-shift 12s ease infinite;
@@ -310,12 +310,12 @@ video {
   transform: translateY(-4px);
   box-shadow:
     0 20px 40px -12px rgba(0, 0, 0, 0.08),
-    0 8px 20px -8px rgba(14, 150, 72, 0.1);
+    0 8px 20px -8px rgba(100, 116, 139, 0.1);
 }
 
 /* ─── Dot pattern overlay ─── */
 
 .dot-pattern {
-  background-image: radial-gradient(circle, rgba(14, 150, 72, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(100, 116, 139, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }

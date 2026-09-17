@@ -24,7 +24,7 @@ export default function TechnologyScience() {
             viewport={viewportOnce}
             className="relative"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl shadow-eco-900/10">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl shadow-slate-900/10">
               <Image
                 src={`${basePath}/media/factory/botanical-processing-line.webp`}
                 alt="Botanical extraction and processing line inside the Ecobiocides factory"
@@ -32,7 +32,7 @@ export default function TechnologyScience() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-eco-900/40 via-eco-900/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/10 to-transparent" />
             </div>
 
             {/* Floating stat card */}
@@ -43,7 +43,7 @@ export default function TechnologyScience() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="absolute -bottom-6 -right-4 z-10 rounded-2xl glass-premium p-5 shadow-xl sm:-right-8"
             >
-              <p className="text-3xl font-extrabold text-eco-700 font-display">400+</p>
+              <p className="text-3xl font-extrabold text-slate-600 font-display">400+</p>
               <p className="text-sm font-medium text-gray-600">Insect Species Controlled</p>
             </motion.div>
           </motion.div>
@@ -55,7 +55,7 @@ export default function TechnologyScience() {
             whileInView="visible"
             viewport={viewportOnce}
           >
-            <span className="mb-4 inline-block rounded-full bg-eco-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-eco-700">
+            <span className="mb-4 inline-block rounded-full bg-stone-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600">
               Science &amp; Technology
             </span>
             <h2 className="font-display text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -73,10 +73,10 @@ export default function TechnologyScience() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
-                  className="group rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:border-eco-200 hover:shadow-md"
+                  className="group rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:border-stone-200 hover:shadow-md"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-eco-100 text-eco-600 transition-colors group-hover:bg-eco-600 group-hover:text-white">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-stone-100 text-eco-600 transition-colors group-hover:bg-slate-600 group-hover:text-white">
                       <Check className="h-3.5 w-3.5" />
                     </div>
                     <div>

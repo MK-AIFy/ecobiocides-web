@@ -30,7 +30,7 @@ export default function SectionHeading({
           className={`mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-wider ${
             light
               ? "bg-white/10 text-white/80"
-              : "bg-eco-50 text-eco-700"
+              : "bg-stone-50 text-slate-600"
           }`}
         >
           {badge}

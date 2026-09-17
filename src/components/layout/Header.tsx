@@ -80,7 +80,7 @@ export default function Header() {
                   href={link.href}
                   className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-300 ${
                     active
-                      ? "text-eco-700"
+                      ? "text-slate-600"
                       : "text-gray-600 hover:text-gray-900"
                   }`}
                 >
@@ -88,7 +88,7 @@ export default function Header() {
                   {active && (
                     <motion.div
                       layoutId="activeNav"
-                      className="absolute inset-0 -z-10 rounded-lg bg-eco-50"
+                      className="absolute inset-0 -z-10 rounded-lg bg-stone-50"
                       transition={{
                         type: "spring",
                         stiffness: 380,
@@ -105,7 +105,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <a
               href={`tel:${COMPANY.phones[0]}`}
-              className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-eco-600 to-eco-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-eco-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-eco-600/35 sm:flex"
+              className="hidden items-center gap-2 rounded-full bg-gradient-to-r from-slate-600 to-slate-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-eco-600/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-eco-600/35 sm:flex"
             >
               <Phone className="h-4 w-4" />
               Get Quote
@@ -152,7 +152,7 @@ export default function Header() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors ${
                       isActive(link.href)
-                        ? "bg-eco-50 text-eco-700"
+                        ? "bg-stone-50 text-slate-600"
                         : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                     }`}
                   >
@@ -163,7 +163,7 @@ export default function Header() {
               <div className="pt-4">
                 <a
                   href={`tel:${COMPANY.phones[0]}`}
-                  className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-eco-600 to-eco-700 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-eco-600/25"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-slate-600 to-slate-700 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-eco-600/25"
                 >
                   <Phone className="h-4 w-4" />
                   Get Quote

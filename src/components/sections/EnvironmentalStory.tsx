@@ -48,7 +48,7 @@ export default function EnvironmentalStory() {
           viewport={viewportOnce}
           className="mb-16 text-center lg:mb-24"
         >
-          <span className="mb-4 inline-block rounded-full bg-eco-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-eco-700">
+          <span className="mb-4 inline-block rounded-full bg-stone-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600">
             Why Eco-Safe Matters
           </span>
           <h2 className="font-display text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
@@ -74,7 +74,7 @@ export default function EnvironmentalStory() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={viewportOnce}
-                className={`relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl shadow-eco-900/10 ${
+                className={`relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl shadow-slate-900/10 ${
                   story.reverse ? "lg:order-2" : ""
                 }`}
               >
@@ -86,9 +86,9 @@ export default function EnvironmentalStory() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 {/* Green accent overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-eco-900/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/20 via-transparent to-transparent" />
                 {/* Step badge on image */}
-                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-eco-700 backdrop-blur-sm sm:left-6 sm:top-6">
+                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-600 backdrop-blur-sm sm:left-6 sm:top-6">
                   0{index + 1}
                 </div>
               </motion.div>
@@ -101,7 +101,7 @@ export default function EnvironmentalStory() {
                 viewport={viewportOnce}
                 className={story.reverse ? "lg:order-1" : ""}
               >
-                <span className="mb-3 inline-block rounded-full bg-eco-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-eco-700">
+                <span className="mb-3 inline-block rounded-full bg-stone-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-600">
                   {story.badge}
                 </span>
                 <h3 className="font-display text-2xl font-bold leading-tight text-gray-900 sm:text-3xl lg:text-4xl">

@@ -81,6 +81,18 @@ const home = readFileSync(join(root, "index.html"), "utf8");
 assert(!home.includes("Six precise strengths"), "Homepage concentration count is stale");
 const about = readFileSync(join(root, "about/index.html"), "utf8");
 const industries = readFileSync(join(root, "industries/index.html"), "utf8");
+assert(!/See the portfolio from every angle|id="field-stories"|<video\b/.test(home), "Portfolio and four videos must be removed");
+assert(!about.includes("Integrated manufacturing campus") && !about.includes("factory-aerial-campus.webp"), "Removed About campus image remains");
+assert(about.includes("Connected production areas") && about.includes("factory-aerial-yard.webp"), "Keep the connected production areas on About");
+const industryHero = industries.match(/<main><section[\s\S]*?<\/section>/)?.[0];
+assert(industryHero && !/<img\b|background-image/.test(industryHero), "Industries hero must not use a background image");
+const exportCard = [...industries.matchAll(/<article\b[\s\S]*?<\/article>/g)].map(([card]) => card).find((card) => card.includes("Export &amp; Global Trade"));
+assert(exportCard?.includes("factory-aerial-yard.webp"), "Export card must use the connected production areas photo");
+for (const colour of ["#073b12", "#67a91c", "#00421c", "#f1ca16", "#075e65"]) {
+  assert(home.includes(`background-color:${colour}`), `Missing PPM label background ${colour}`);
+}
+const familyImage = [...home.matchAll(/<img\b[^>]*>/g)].map(([img]) => img).find((img) => img.includes("complete pack range"));
+assert(familyImage?.includes('class="object-contain"'), "Selected pack image must fit without cropping");
 for (const [file, { html }] of documents) {
   assert(!/testimonials|complete visual story/i.test(html), `Removed content remains in ${file}`);
 }

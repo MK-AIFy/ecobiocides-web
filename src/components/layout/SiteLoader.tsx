@@ -28,11 +28,11 @@ export default function SiteLoader() {
           aria-label="Loading Ecobiocides"
         >
           <div className="relative flex flex-col items-center">
-            <div className="absolute h-32 w-32 rounded-full bg-lime-300/25 blur-3xl" />
+            <div className="absolute h-32 w-32 rounded-full bg-amber-300/25 blur-3xl" />
             <motion.div
               animate={prefersReducedMotion ? undefined : { rotate: 360 }}
               transition={{ duration: 0.9, ease: "linear", repeat: Infinity }}
-              className="relative h-20 w-20 overflow-hidden rounded-full border border-emerald-100 bg-white p-2 shadow-2xl shadow-emerald-950/15"
+              className="relative h-20 w-20 overflow-hidden rounded-full border border-stone-100 bg-white p-2 shadow-2xl shadow-slate-950/15"
             >
               <Image
                 src={`${basePath}/ecobiosides-logo.png`}
@@ -43,7 +43,7 @@ export default function SiteLoader() {
                 sizes="80px"
               />
             </motion.div>
-            <p className="relative mt-5 text-[11px] font-extrabold uppercase tracking-[0.22em] text-emerald-900">
+            <p className="relative mt-5 text-[11px] font-extrabold uppercase tracking-[0.22em] text-slate-900">
               Ecobiocides &amp; Botanicals
             </p>
           </div>

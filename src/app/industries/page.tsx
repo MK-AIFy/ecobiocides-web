@@ -15,7 +15,7 @@ const industryVisuals = [
   "/media/story/neem-shield.webp",
   "/media/story/seedling-growth.webp",
   "/media/story/botanical-oils.webp",
-  "/media/factory/factory-aerial-campus.webp",
+  "/media/factory/factory-aerial-yard.webp",
 ] as const;
 
 const iconMap: Record<string, React.ElementType> = {
@@ -34,8 +34,6 @@ export default function IndustriesPage() {
         badge="Manufacturing & industries"
         title="Neem expertise, from processing to people."
         subtitle="Integrated neem manufacturing, research and a skilled workforce supporting agricultural and horticultural customers in India and international markets."
-        backgroundImage="/media/factory/factory-aerial-campus.webp"
-        imagePosition="center 58%"
         highlights={["Agriculture", "Botanical formulation", "Bulk and export supply"]}
       />
 
@@ -45,8 +43,8 @@ export default function IndustriesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
             <div>
-              <p className="eyebrow text-emerald-700">Sector-specific value</p>
-              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">One botanical platform. Multiple pathways to impact.</h2>
+              <p className="eyebrow text-slate-600">Sector-specific value</p>
+              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">One botanical platform. Multiple pathways to impact.</h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-slate-600">We connect product strength, application format, pack size and technical guidance to the way each customer grows, formulates, stores or distributes.</p>
           </div>
@@ -55,14 +53,13 @@ export default function IndustriesPage() {
             {INDUSTRIES.map((industry, index) => {
               const Icon = iconMap[industry.icon] || Leaf;
               return (
-                <motion.article key={industry.title} initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.07 }} className="group overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-xl">
-                  <div className="relative aspect-[3/2] overflow-hidden bg-emerald-50">
-                    <Image src={mediaUrl(industryVisuals[index])} alt="" fill className="object-cover transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/55 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-emerald-800 shadow-lg"><Icon className="h-5 w-5" /></div>
+                <motion.article key={industry.title} initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.07 }} className="group overflow-hidden rounded-[1.8rem] border border-slate-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-stone-200 hover:shadow-xl">
+                  <div className="relative aspect-[3/2] overflow-hidden bg-stone-50">
+                    <Image src={mediaUrl(industryVisuals[index])} alt={index === 5 ? "Original aerial photograph of Ecobiocides production buildings and material-handling yard" : industry.title} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.025]" sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" />
+                    <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-slate-800 shadow-lg"><Icon className="h-5 w-5" /></div>
                   </div>
                   <div className="p-6 sm:p-7">
-                    <h3 className="font-display text-2xl font-extrabold text-emerald-950">{industry.title}</h3>
+                    <h3 className="font-display text-2xl font-extrabold text-slate-950">{industry.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-slate-600">{industry.description}</p>
                   </div>
                 </motion.article>
@@ -75,8 +72,8 @@ export default function IndustriesPage() {
       <section className="bg-[#f4f0e6] py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="eyebrow text-emerald-700">How we support partners</p>
-            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">From requirement to repeatable supply.</h2>
+            <p className="eyebrow text-slate-600">How we support partners</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">From requirement to repeatable supply.</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {[
@@ -85,8 +82,8 @@ export default function IndustriesPage() {
               ["03", "Plan dependable supply", "Coordinate samples, commercial packs, bulk volumes and delivery expectations."],
             ].map(([step, title, description]) => (
               <article key={step} className="rounded-[1.7rem] border border-black/5 bg-white p-7 shadow-sm">
-                <p className="font-display text-4xl font-extrabold text-lime-500">{step}</p>
-                <h3 className="mt-6 text-xl font-extrabold text-emerald-950">{title}</h3>
+                <p className="font-display text-4xl font-extrabold text-amber-700">{step}</p>
+                <h3 className="mt-6 text-xl font-extrabold text-slate-950">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{description}</p>
               </article>
             ))}
@@ -94,11 +91,11 @@ export default function IndustriesPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-emerald-950 py-20 text-white">
-        <div className="absolute -right-32 top-0 h-80 w-80 rounded-full bg-lime-300/10 blur-3xl" />
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white">
+        <div className="absolute -right-32 top-0 h-80 w-80 rounded-full bg-amber-300/10 blur-3xl" />
         <div className="relative mx-auto flex max-w-5xl flex-col items-center justify-between gap-7 px-4 text-center sm:px-6 lg:flex-row lg:text-left">
-          <div><p className="eyebrow text-lime-300">Your industry, our technical team</p><h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">Let’s identify the right botanical pathway.</h2></div>
-          <Link href="/#contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-lime-300 px-7 py-4 text-sm font-extrabold text-emerald-950 transition-colors hover:bg-lime-200">Discuss your requirement <ArrowRight className="h-4 w-4" /></Link>
+          <div><p className="eyebrow text-amber-300">Your industry, our technical team</p><h2 className="mt-3 font-display text-3xl font-extrabold sm:text-4xl">Let’s identify the right botanical pathway.</h2></div>
+          <Link href="/#contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-amber-300 px-7 py-4 text-sm font-extrabold text-slate-950 transition-colors hover:bg-amber-200">Discuss your requirement <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
     </main>

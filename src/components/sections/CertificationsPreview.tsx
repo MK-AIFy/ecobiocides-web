@@ -12,7 +12,7 @@ export default function CertificationsPreview() {
   return (
     <section
       id="certifications"
-      className="section-padding relative overflow-hidden bg-gradient-to-br from-eco-900 via-eco-800 to-gray-900"
+      className="section-padding relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-gray-900"
     >
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">

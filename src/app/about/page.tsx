@@ -20,19 +20,11 @@ const capabilities = [
 
 const factoryGallery = [
   {
-    src: "/media/factory/factory-aerial-campus.webp",
-    alt: "Aerial view of the Ecobiocides manufacturing campus in Theni",
-    title: "Integrated manufacturing campus",
-    description: "An original aerial view of our production footprint and surrounding industrial campus.",
-    className: "lg:col-span-7",
-    imageClassName: "object-cover",
-  },
-  {
     src: "/media/factory/factory-aerial-yard.webp",
     alt: "Aerial view of Ecobiocides production buildings and material handling yard",
     title: "Connected production areas",
     description: "Production, storage and material-handling areas coordinated within one facility.",
-    className: "lg:col-span-5",
+    className: "lg:col-span-6",
     imageClassName: "object-cover",
   },
   {
@@ -40,7 +32,7 @@ const factoryGallery = [
     alt: "Stainless steel processing tanks inside the Ecobiocides factory",
     title: "Batch processing vessels",
     description: "Dedicated stainless-steel vessels support controlled botanical processing.",
-    className: "lg:col-span-4",
+    className: "lg:col-span-6",
     imageClassName: "object-cover",
   },
   {
@@ -48,7 +40,7 @@ const factoryGallery = [
     alt: "Process vessels and storage tanks inside the Ecobiocides facility",
     title: "Process and storage hall",
     description: "Organised utility lines, vessels and storage support repeatable production workflows.",
-    className: "lg:col-span-4",
+    className: "lg:col-span-6",
     imageClassName: "object-cover",
   },
   {
@@ -56,7 +48,7 @@ const factoryGallery = [
     alt: "Analytical equipment in the Ecobiocides quality-control laboratory",
     title: "Quality-control laboratory",
     description: "Analytical equipment supports product identity, consistency and finished-batch review.",
-    className: "lg:col-span-4",
+    className: "lg:col-span-6",
     imageClassName: "object-contain",
   },
 ] as const;
@@ -76,20 +68,20 @@ export default function AboutPage() {
       <section className="bg-white py-20 sm:py-24 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.9fr_1.1fr] lg:items-center lg:px-8">
           <div>
-            <p className="eyebrow text-emerald-700">Our origins</p>
-            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">From Karna Oil Mill to Ecobiocides.</h2>
+            <p className="eyebrow text-slate-600">Our origins</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">From Karna Oil Mill to Ecobiocides.</h2>
             <p className="mt-6 text-lg leading-8 text-slate-600">{COMPANY_STORY.origin}</p>
             <p className="mt-5 text-lg leading-8 text-slate-600">{COMPANY_STORY.foundation}</p>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {["Botanical crop protection", "Soil and plant nutrition", "Grain-storage protection", "Technical and bulk supply"].map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-2xl bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-900">
+                <div key={item} className="flex items-center gap-3 rounded-2xl bg-stone-50 px-4 py-3 text-sm font-bold text-slate-900">
                   <Leaf className="h-4 w-4 text-emerald-600" />
                   {item}
                 </div>
               ))}
             </div>
           </div>
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="overflow-hidden rounded-[2rem] border border-emerald-100 bg-[#f7f5ec] p-3 shadow-xl shadow-emerald-950/10">
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="overflow-hidden rounded-[2rem] border border-stone-100 bg-[#f7f5ec] p-3 shadow-xl shadow-slate-950/10">
             <div className="relative aspect-[3/2] overflow-hidden rounded-[1.45rem] bg-white">
               <Image src={mediaUrl("/media/factory/botanical-processing-line.webp")} alt="Botanical extraction and processing line inside the Ecobiocides factory" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
             </div>
@@ -100,15 +92,15 @@ export default function AboutPage() {
       <section className="bg-[#f4f0e6] py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="eyebrow text-emerald-700">Our expertise &amp; legacy</p>
-            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">Traditional neem knowledge. Modern manufacturing.</h2>
+            <p className="eyebrow text-slate-600">Our expertise &amp; legacy</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">Traditional neem knowledge. Modern manufacturing.</h2>
           </div>
           <div className="mt-6 grid gap-6 lg:grid-cols-2"><p className="text-lg leading-8 text-slate-600">{COMPANY_STORY.expertise}</p><p className="text-lg leading-8 text-slate-600">{COMPANY_STORY.facility}</p></div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {capabilities.map((item, index) => (
               <motion.article key={item.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }} className="rounded-[1.6rem] border border-black/5 bg-white p-6 shadow-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-900 text-lime-300"><item.icon className="h-6 w-6" /></div>
-                <h3 className="mt-5 text-xl font-extrabold text-emerald-950">{item.title}</h3>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-amber-300"><item.icon className="h-6 w-6" /></div>
+                <h3 className="mt-5 text-xl font-extrabold text-slate-950">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
               </motion.article>
             ))}
@@ -120,8 +112,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
             <div>
-              <p className="eyebrow text-emerald-700">Inside our facility</p>
-              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">Inside our manufacturing facility.</h2>
+              <p className="eyebrow text-slate-600">Inside our facility</p>
+              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">Inside our manufacturing facility.</h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-slate-600 lg:justify-self-end">
               These original photographs present our manufacturing campus, processing equipment and quality-control laboratory—giving partners a direct view of the infrastructure behind our botanical portfolio.
@@ -136,7 +128,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ delay: index * 0.05 }}
-                className={`group overflow-hidden rounded-[1.65rem] border border-emerald-100 bg-[#f7f5ec] shadow-sm ${photo.className}`}
+                className={`group overflow-hidden rounded-[1.65rem] border border-stone-100 bg-[#f7f5ec] shadow-sm ${photo.className}`}
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                   <Image
@@ -144,11 +136,11 @@ export default function AboutPage() {
                     alt={photo.alt}
                     fill
                     className={`${photo.imageClassName} transition-transform duration-700 group-hover:scale-[1.025]`}
-                    sizes={index < 2 ? "(max-width: 1024px) 100vw, 58vw" : "(max-width: 1024px) 100vw, 33vw"}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
                 <div className="p-5 sm:p-6">
-                  <h3 className="text-xl font-extrabold text-emerald-950">{photo.title}</h3>
+                  <h3 className="text-xl font-extrabold text-slate-950">{photo.title}</h3>
                   <p className="mt-2 text-sm leading-6 text-slate-600">{photo.description}</p>
                 </div>
               </motion.article>
@@ -157,15 +149,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-emerald-950 py-20 text-white sm:py-24">
+      <section className="bg-slate-950 py-20 text-white sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_.9fr] lg:items-center lg:px-8">
           <div>
-            <p className="eyebrow text-lime-300">Our vision</p>
+            <p className="eyebrow text-amber-300">Our vision</p>
             <h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Mr. M. Karunakaran</h2>
-            <p className="mt-2 font-bold text-lime-200">Managing Director · {COMPANY.experience}+ years in the neem industry</p>
+            <p className="mt-2 font-bold text-amber-200">Managing Director · {COMPANY.experience}+ years in the neem industry</p>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/80">{COMPANY_STORY.vision}</p>
             <p className="mt-5 text-lg leading-8 text-white/80">{COMPANY_STORY.future}</p>
-            <p className="mt-5 text-base font-semibold text-lime-200">{COMPANY_STORY.tagline}</p>
+            <p className="mt-5 text-base font-semibold text-amber-200">{COMPANY_STORY.tagline}</p>
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
@@ -175,7 +167,7 @@ export default function AboutPage() {
               [String(AWARDS.length), "District awards"],
             ].map(([value, label]) => (
               <div key={label} className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm">
-                <p className="font-display break-words text-2xl font-extrabold text-lime-300 sm:text-3xl">{value}</p>
+                <p className="font-display break-words text-2xl font-extrabold text-amber-300 sm:text-3xl">{value}</p>
                 <p className="mt-2 text-xs font-bold uppercase tracking-wider text-white/55">{label}</p>
               </div>
             ))}
@@ -186,17 +178,17 @@ export default function AboutPage() {
       <section className="bg-white py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="eyebrow text-emerald-700">Our journey</p>
-            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-emerald-950 sm:text-5xl">Three decades of botanical progress.</h2>
+            <p className="eyebrow text-slate-600">Our journey</p>
+            <h2 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">Three decades of botanical progress.</h2>
           </div>
           <ol className="mt-10 space-y-4">
-            {TIMELINE.map((item) => <li key={item.year} className="grid gap-4 rounded-2xl border border-emerald-100 p-6 sm:grid-cols-[120px_1fr]"><p className="text-lg font-bold text-emerald-700">{item.year}</p><div><h3 className="text-xl font-bold text-emerald-950">{item.title}</h3><p className="mt-2 text-base leading-7 text-slate-600">{item.description}</p></div></li>)}
+            {TIMELINE.map((item) => <li key={item.year} className="grid gap-4 rounded-2xl border border-stone-100 p-6 sm:grid-cols-[120px_1fr]"><p className="text-lg font-bold text-slate-600">{item.year}</p><div><h3 className="text-xl font-bold text-slate-950">{item.title}</h3><p className="mt-2 text-base leading-7 text-slate-600">{item.description}</p></div></li>)}
           </ol>
-          <Link href="#awards" className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-emerald-800">View our award certificates <ArrowRight className="h-4 w-4" /></Link>
+          <Link href="#awards" className="mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-slate-800">View our award certificates <ArrowRight className="h-4 w-4" /></Link>
 
           <div className="mt-16 flex flex-col items-center justify-between gap-6 rounded-[2rem] bg-[#f4f0e6] p-7 text-center sm:p-10 lg:flex-row lg:text-left">
-            <div><p className="eyebrow text-emerald-700">Build with us</p><h2 className="mt-3 font-display text-3xl font-extrabold text-emerald-950">Let’s advance plant-powered agriculture.</h2></div>
-            <Link href="/#contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-emerald-800 px-7 py-4 text-sm font-extrabold text-white transition-colors hover:bg-emerald-900">Partner with us <ArrowRight className="h-4 w-4" /></Link>
+            <div><p className="eyebrow text-slate-600">Build with us</p><h2 className="mt-3 font-display text-3xl font-extrabold text-slate-950">Let’s advance plant-powered agriculture.</h2></div>
+            <Link href="/#contact" className="inline-flex shrink-0 items-center gap-2 rounded-full bg-slate-800 px-7 py-4 text-sm font-extrabold text-white transition-colors hover:bg-slate-900">Partner with us <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>

@@ -26,14 +26,14 @@ export default function ProductNavigation({ mobile = false, active = false, onNa
     }} onBlur={(event) => {
       if (!event.currentTarget.contains(event.relatedTarget)) event.currentTarget.open = false;
     }}>
-      <summary className={`flex cursor-pointer list-none items-center justify-between gap-2 rounded-lg font-medium [&::-webkit-details-marker]:hidden ${mobile ? "px-4 py-3 text-base" : "px-3 py-2 text-sm"} ${active ? "bg-eco-50 text-eco-700" : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"}`}>Products <ChevronDown aria-hidden="true" className="h-4 w-4" /></summary>
-      <div className={`${mobile ? "mt-2" : "absolute left-0 top-full mt-3 w-80 shadow-xl"} max-h-[60vh] overflow-y-auto rounded-2xl border border-emerald-100 bg-white p-3`} onClick={(event) => {
+      <summary className={`flex cursor-pointer list-none items-center justify-between gap-2 rounded-lg font-medium [&::-webkit-details-marker]:hidden ${mobile ? "px-4 py-3 text-base" : "px-3 py-2 text-sm"} ${active ? "bg-stone-50 text-slate-600" : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"}`}>Products <ChevronDown aria-hidden="true" className="h-4 w-4" /></summary>
+      <div className={`${mobile ? "mt-2" : "absolute left-0 top-full mt-3 w-80 shadow-xl"} max-h-[60vh] overflow-y-auto rounded-2xl border border-stone-100 bg-white p-3`} onClick={(event) => {
         if ((event.target as Element).closest("a")) {
           if (menu.current) menu.current.open = false;
           onNavigate?.();
         }
       }}>
-        <Link href="/products/" className="mb-2 block rounded-xl bg-emerald-900 px-4 py-3 text-sm font-bold text-white hover:bg-emerald-800">View all products</Link>
+        <Link href="/products/" className="mb-2 block rounded-xl bg-slate-900 px-4 py-3 text-sm font-bold text-white hover:bg-slate-800">View all products</Link>
         <ProductMenu />
       </div>
     </details>

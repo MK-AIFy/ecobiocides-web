@@ -9,7 +9,7 @@ import { COMPANY } from "@/lib/constants";
 
 export default function AboutPreview() {
   return (
-    <section id="about" className="relative overflow-hidden bg-eco-950">
+    <section id="about" className="relative overflow-hidden bg-[#f4f0e6]">
       <div className="relative">
         <div className="relative flex min-h-[30rem] items-center py-16 sm:min-h-[32rem] lg:min-h-[34rem]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -20,18 +20,18 @@ export default function AboutPreview() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="mb-3 inline-block rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80 backdrop-blur-sm">
+                <span className="mb-3 inline-block rounded-full bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-slate-600 backdrop-blur-sm">
                   Our Manufacturing Base
                 </span>
-                <h2 className="text-3xl font-bold text-white sm:text-4xl">
+                <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">
                   Built in Theni. Ready for Global Agriculture.
                 </h2>
-                <p className="mt-3 max-w-lg text-base leading-relaxed text-white/70">
+                <p className="mt-3 max-w-lg text-base leading-relaxed text-slate-600">
                   {COMPANY_STORY.expertise}
                 </p>
                 <Link
                   href="/about/"
-                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-eco-800 transition-all hover:bg-eco-50 hover:shadow-lg hover:gap-3"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition-all hover:bg-stone-50 hover:shadow-lg hover:gap-3"
                 >
                   Our story & facility
                   <ArrowRight className="h-4 w-4" />
@@ -53,12 +53,12 @@ export default function AboutPreview() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-xl bg-white/10 p-4 text-center backdrop-blur-sm"
+                    className="rounded-xl bg-white p-4 text-center backdrop-blur-sm"
                   >
-                    <p className="text-2xl font-bold text-eco-300">
+                    <p className="text-2xl font-bold text-slate-900">
                       {stat.value}
                     </p>
-                    <p className="mt-0.5 text-xs font-medium text-white/60">
+                    <p className="mt-0.5 text-xs font-medium text-slate-500">
                       {stat.label}
                     </p>
                   </div>
