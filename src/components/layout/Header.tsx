@@ -13,8 +13,11 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileMenuPath, setMobileMenuPath] = useState<string | null>(null);
   const pathname = usePathname();
+  const isMobileMenuOpen = mobileMenuPath === pathname;
+  // Close only after navigation commits, and keep the menu closed on Back.
+  if (mobileMenuPath !== null && mobileMenuPath !== pathname) setMobileMenuPath(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +76,7 @@ export default function Header() {
           <div className="hidden items-center gap-1 lg:flex">
             {NAV_LINKS.map((link) => {
               const active = isActive(link.href);
-              if (link.href === "/products") return <ProductNavigation key={link.href} active={active} />;
+              if (link.href === "/products") return <ProductNavigation key={`${link.href}:${pathname}`} active={active} />;
               return (
                 <Link
                   key={link.href}
@@ -112,7 +115,7 @@ export default function Header() {
             </a>
 
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              onClick={() => setMobileMenuPath(isMobileMenuOpen ? null : pathname)}
               className="flex h-10 w-10 items-center justify-center rounded-lg text-gray-700 transition-colors hover:bg-gray-100 lg:hidden"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
@@ -139,7 +142,7 @@ export default function Header() {
           >
             <div className="max-h-[calc(100dvh-5rem)] space-y-1 overflow-y-auto bg-white px-4 pb-6 pt-4">
               {NAV_LINKS.map((link, i) => link.href === "/products" ? (
-                <ProductNavigation key={link.href} mobile active={isActive(link.href)} onNavigate={() => setIsMobileMenuOpen(false)} />
+                <ProductNavigation key={`${link.href}:${pathname}`} mobile active={isActive(link.href)} />
               ) : (
                 <motion.div
                   key={link.href}
@@ -149,7 +152,7 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={() => setMobileMenuPath(null)}
                     className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors ${
                       isActive(link.href)
                         ? "bg-stone-50 text-slate-600"

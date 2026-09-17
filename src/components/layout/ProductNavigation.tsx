@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, ChevronDown, X } from "lucide-react";
 import ProductMenu from "@/components/ui/ProductMenu";
 
-export default function ProductNavigation({ mobile = false, active = false, onNavigate }: { mobile?: boolean; active?: boolean; onNavigate?: () => void }) {
+export default function ProductNavigation({ mobile = false, active = false }: { mobile?: boolean; active?: boolean }) {
   const [open, setOpen] = useState(false);
   const container = useRef<HTMLDivElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -30,11 +30,6 @@ export default function ProductNavigation({ mobile = false, active = false, onNa
     };
   }, [open]);
 
-  const navigate = () => {
-    setOpen(false);
-    onNavigate?.();
-  };
-
   return (
     <div ref={container} className={mobile ? "relative" : "static"} onKeyDown={(event) => {
       if (event.key === "Escape" && open) {
@@ -44,7 +39,7 @@ export default function ProductNavigation({ mobile = false, active = false, onNa
       }
     }}>
       <div className={`flex items-center rounded-xl transition-colors ${open || active ? "bg-stone-100 text-slate-950" : "text-slate-600 hover:bg-stone-50 hover:text-slate-950"}`}>
-        <Link href="/products/" onNavigate={navigate} aria-current={active ? "page" : undefined} className={`min-h-11 flex items-center font-medium ${mobile ? "flex-1 px-4 py-3 text-base" : "pl-3 pr-1 text-sm"}`}>Products</Link>
+        <Link href="/products/" aria-current={active ? "page" : undefined} className={`min-h-11 flex items-center font-medium ${mobile ? "flex-1 px-4 py-3 text-base" : "pl-3 pr-1 text-sm"}`}>Products</Link>
         <button ref={toggle} type="button" aria-label={open ? "Close product menu" : "Open product menu"} aria-expanded={open} aria-controls={panelId} onClick={() => setOpen(!open)} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl hover:bg-stone-200/70">
           <ChevronDown aria-hidden="true" className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
         </button>
@@ -54,8 +49,8 @@ export default function ProductNavigation({ mobile = false, active = false, onNa
           <div><p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500">Our products</p><p className="mt-1 text-sm text-slate-600">Find your botanical solution.</p></div>
           <button type="button" aria-label="Close product dropdown" onClick={() => { setOpen(false); toggle.current?.focus(); }} className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-stone-200 bg-white text-slate-600 hover:bg-stone-100"><X aria-hidden="true" className="h-4 w-4" /></button>
         </div>
-        <div className="p-3 sm:p-4"><ProductMenu key={String(open)} columns={mobile ? 1 : 2} onNavigate={navigate} /></div>
-        <Link href="/products/" onNavigate={navigate} className="flex min-h-12 items-center justify-between gap-3 border-t border-stone-200 bg-stone-50 px-5 py-3 text-sm font-bold text-slate-900 hover:bg-stone-100">View all products<ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
+        <div className="p-3 sm:p-4"><ProductMenu key={String(open)} columns={mobile ? 1 : 2} /></div>
+        <Link href="/products/" className="flex min-h-12 items-center justify-between gap-3 border-t border-stone-200 bg-stone-50 px-5 py-3 text-sm font-bold text-slate-900 hover:bg-stone-100">View all products<ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { ArrowUpRight, ChevronDown, Search, X } from "lucide-react";
 import { CATALOG_PRODUCTS, PRODUCT_CATEGORIES, productHref } from "@/lib/products";
 import { mediaUrl } from "@/lib/media";
 
-export default function ProductMenu({ columns = 1, onNavigate }: { columns?: 1 | 2; onNavigate?: () => void }) {
+export default function ProductMenu({ columns = 1 }: { columns?: 1 | 2 }) {
   const [query, setQuery] = useState("");
   const inputId = useId();
   const normalized = query.trim().toLowerCase().replace(/,/g, "");
@@ -35,14 +35,14 @@ export default function ProductMenu({ columns = 1, onNavigate }: { columns?: 1 |
                   <details key={`${group.id}-${normalized}`} open className="group/category rounded-2xl border border-stone-200 bg-stone-50">
                     <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 rounded-xl px-4 py-3 font-bold hover:bg-stone-100 [&::-webkit-details-marker]:hidden">{group.name}<ChevronDown aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform group-open/category:rotate-180" /></summary>
                     <ul className={`grid gap-2 px-3 pb-3 ${columns === 2 && group.id === "azagro-ec" ? "sm:grid-cols-2 lg:grid-cols-3" : ""}`}>
-                      {group.products.map((product) => <li key={product.slug}><Link href={productHref(product)} onNavigate={onNavigate} className="group/item flex min-h-14 items-center gap-3 rounded-xl border border-stone-100 bg-white px-3 py-2 transition-colors hover:border-slate-300 hover:bg-stone-50">
+                      {group.products.map((product) => <li key={product.slug}><Link href={productHref(product)} className="group/item flex min-h-14 items-center gap-3 rounded-xl border border-stone-100 bg-white px-3 py-2 transition-colors hover:border-slate-300 hover:bg-stone-50">
                         {product.image && <Image src={mediaUrl(product.image)} alt="" width={32} height={40} className="h-10 w-8 shrink-0 object-contain" />}
                         <span className="flex-1 font-semibold">{product.name}</span><ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0 text-slate-400 group-hover/item:text-slate-900" />
                       </Link></li>)}
                     </ul>
                   </details>
                 ) : (
-                  <Link href={productHref(group.products[0])} onNavigate={onNavigate} className="group/item flex min-h-20 items-center gap-3 rounded-2xl border border-stone-100 px-3 py-3 transition-colors hover:border-slate-300 hover:bg-stone-50">
+                  <Link href={productHref(group.products[0])} className="group/item flex min-h-20 items-center gap-3 rounded-2xl border border-stone-100 px-3 py-3 transition-colors hover:border-slate-300 hover:bg-stone-50">
                     {group.products[0].image && <Image src={mediaUrl(group.products[0].image)} alt="" width={44} height={48} className="h-12 w-11 shrink-0 rounded-lg bg-stone-50 object-contain" />}
                     <span className="flex-1 font-semibold leading-5">{group.name}</span><ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0 text-slate-400 group-hover/item:text-slate-900" />
                   </Link>
