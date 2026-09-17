@@ -12,7 +12,7 @@ export default function ProductDirectory() {
         </div>
         <details className="group self-start rounded-2xl border border-stone-200 bg-white shadow-sm">
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-2xl px-6 py-5 font-bold text-slate-950 [&::-webkit-details-marker]:hidden">Browse products &amp; subcategories<ChevronDown aria-hidden="true" className="h-5 w-5 shrink-0 transition-transform group-open:rotate-180" /></summary>
-          <div className="max-h-[32rem] overflow-y-auto border-t border-stone-100 p-3"><ProductMenu /></div>
+          <div className="border-t border-stone-100 p-3 sm:p-4"><ProductMenu /></div>
         </details>
       </div>
     </section>

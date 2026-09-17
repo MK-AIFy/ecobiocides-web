@@ -137,7 +137,7 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden border-t border-gray-200/50 lg:hidden"
           >
-            <div className="glass-premium max-h-[calc(100dvh-5rem)] space-y-1 overflow-y-auto px-4 pb-6 pt-4">
+            <div className="max-h-[calc(100dvh-5rem)] space-y-1 overflow-y-auto bg-white px-4 pb-6 pt-4">
               {NAV_LINKS.map((link, i) => link.href === "/products" ? (
                 <ProductNavigation key={link.href} mobile active={isActive(link.href)} onNavigate={() => setIsMobileMenuOpen(false)} />
               ) : (
